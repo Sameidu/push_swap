@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/09 09:50:32 by smeixoei         ###   ########.fr       */
+/*   Created: 2023/03/07 13:38:23 by smeixoei          #+#    #+#             */
+/*   Updated: 2023/03/09 17:16:00 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	
+	return (c >= 0 && c <= 127);
 }

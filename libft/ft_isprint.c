@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/09 09:50:32 by smeixoei         ###   ########.fr       */
+/*   Created: 2023/03/07 13:41:33 by smeixoei          #+#    #+#             */
+/*   Updated: 2023/03/15 15:34:12 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-	
+	return (c >= 32 && c <= 126);
 }

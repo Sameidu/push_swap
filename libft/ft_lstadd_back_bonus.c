@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/09 09:50:32 by smeixoei         ###   ########.fr       */
+/*   Created: 2023/06/12 14:22:54 by smeixoei          #+#    #+#             */
+/*   Updated: 2023/06/15 15:23:05 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	
+	t_list	*last;
+
+	if (lst[0] == NULL)
+		lst[0] = new;
+	else
+	{
+		last = ft_lstlast(lst[0]);
+		last->next = new;
+	}
 }
