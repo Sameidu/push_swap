@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:13:06 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/09/22 09:37:11 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:19:46 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,4 @@ size_t	ft_strlen(const char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
-}
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	size_t  lenght = ft_strlen(argv[1]);
-	printf("Longitud: %zu\n", lenght);
-	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/17 15:52:59 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:17:24 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_isnum(char *str)
 {
@@ -38,5 +38,5 @@ void	ft_isnum(char *str)
 void	ft_error(char *str)
 {
 	ft_putstr_fd(str, 2);
-	exit (0);
+	exit(0);
 }
