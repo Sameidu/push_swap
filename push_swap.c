@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/16 18:13:53 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:53:27 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int	main(int argc, char **argv)
     if (argc > 1)
     {
         a = NULL;
-        b = NULL;
         // Hacer un split con los argumentos introducidos
-        // Comprobar que tods los caraccteres son numéricos
+        // Comprobar que todos los caraccteres son numéricos
         // Hacer un atoi para convertir los argumentos 
         // Comprobar si la lista introducida está ordenada, si es así hacer return.
-        // Si no está ordenaada iniciaar operaciones.
+        b = NULL;
+        // Si no está ordenada iniciaar operaciones.
     }
     return (0);
 }
+
+// printf con con lstiter para ver que los datos de la lista se han actualizado al hacer los movimientos

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/11 12:26:47 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:52:59 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "push_swap.h"
 
 void	ft_isnum(char *str)
 {
