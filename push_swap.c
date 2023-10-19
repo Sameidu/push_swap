@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/17 16:18:53 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/19 09:22:28 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		// Hacer un split con los argumentos introducidos
 		// Comprobar que todos los caraccteres son numéricos
 		// Hacer un atoi para convertir los argumentos
-		// Comprobar si la lista introducida está ordenada, si es así hacer return.
+		// Comprobar si la lista introducida está ordenada, si es así liberar stack a y hacer return.
 		b = NULL;
 		// Si no está ordenada iniciaar operaciones.
 	}
