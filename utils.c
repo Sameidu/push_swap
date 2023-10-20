@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/17 16:17:24 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/20 09:25:55 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	ft_isnum(char *str)
 
 void	ft_error(char *str)
 {
-	ft_putstr_fd(str, 2);
+	ft_putendl_fd(str, 2);
 	exit(0);
 }
