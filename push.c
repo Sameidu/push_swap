@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/23 09:52:48 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:06:04 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_pusha(t_stack **stack_a, t_stack **stack_b)
 		*stack_a = (*stack_a)->next;
 		*stack_a = node;
 	}
+	ft_putendl_fd("pa\n", 2);
 }
 
 void	ft_pushb(t_stack **stack_a, t_stack **stack_b)
@@ -55,4 +56,5 @@ void	ft_pushb(t_stack **stack_a, t_stack **stack_b)
 		*stack_b = (*stack_b)->next;
 		*stack_b = node;
 	}
+	ft_putendl_fd("pb\n", 2);
 }
