@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/20 18:33:25 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/23 09:52:48 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ void	ft_pusha(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	node = *stack_b;
 	*stack_b = (*stack_b)->next;
+	node->next = NULL;
 	if ((*stack_a)->next == NULL)
-	{
 		*stack_a = node;
-		node = node->next;
-		node = node->past;
-	}
 	else
 	{
 		node->next = (*stack_a);
@@ -48,12 +45,8 @@ void	ft_pushb(t_stack **stack_a, t_stack **stack_b)
 	node = *stack_a;
 	*stack_a = (*stack_a)->next;
 	node->next = NULL;
-	if ((*stack_a)->next == NULL)
-	{
+	if ((*stack_b)->next == NULL)
 		*stack_b = node;
-		node = node->next;
-		node = node->past;
-	}
 	else
 	{
 		node->next = (*stack_b);
