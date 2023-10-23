@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/20 09:25:55 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:35:51 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,42 @@
 
 void	ft_isnum(char *str)
 {
+	long	aux;
+	char	*num;
+
+	num = str;
+	if (!str)
+		ft_error("Error. Empty argument");
+	if (*str == '-' || *str == '+')
+		str++;
+	if (*str == '\0')
+		ft_error("Error. No number after sign");
+	while (*str != '\0')
+	{
+		if (!ft_isdigit(*str))
+			ft_error("Error. Not a number");
+		str++;
+	}
+	aux = ft_atoi(num);
+	if (aux > INT_MAX || aux < INT_MIN)
+		ft_error("Error. Number out of range");
+}
+
+void	ft_duplicate_arg(char **str)
+{
 	int	i;
-	int	flag;
+	int	j;
 
 	i = 0;
-	flag = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i])
 	{
-		if (str[i] == '-')
-			flag *= -1;
-		i++;
-	}
-	while (str[i] != '\0')
-	{
-		if (str[i] < 48 && str[i] > 57)
-			ft_error("Error\n");
+		j = i + 1;
+		while (str[j])
+		{
+			if (ft_strcmp(str[i], str[j]) == 0)
+				ft_error("Error. Duplicate argument");
+			j++;
+		}
 		i++;
 	}
 }
