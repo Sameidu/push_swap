@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/24 15:31:56 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:39:53 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_push(t_stack **push, t_stack **dst, char c)
 	if (*dst == NULL)
 	{
 		*dst = node;
-		node = ((node->next), (node->past));
+		node = ((node->next), node->past);
 	}
 	else
 	{
