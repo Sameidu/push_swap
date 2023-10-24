@@ -6,37 +6,52 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/23 09:59:09 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:33:49 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Puedo pasar por argumento cual de los dos stack quiero haccer que se mueva y así evitar hcer la misma función para cada uno.
-// ra rotate a: Desplaza hacia arriba todos los elementos del stack a una posición, de forma que el primer elemento se convierte en el último.
-// rb rotate b: Desplaza hacia arriba todos los elementos del stack b una posición, de forma que el primer elemento se convierte en el último.
 void	ft_rotate(t_stack **stack, char c)
 {
-
+	if (!*stack)
+		return ;
+	*stack = (*stack)->next;
+	if (c == 'a')
+		ft_putendl_fd("ra", 2);
+	if (c == 'b')
+		ft_putendl_fd("rb", 2);
+	if (c == 'x')
+		return ;
+	else
+		ft_putendl_fd("ERROR: BAD STACK", 2);
 }
 
-// rr ra y rb al mismo tiempo.
-void	ft_r_rotate(stack_t **stack, char c)
+void	ft_r_rotate(t_stack **a, t_stack **b, char c)
 {
-	void ft_rotate(t_stack * *stack, char a);
-	void ft_rotate(t_stack * *stack, char b);
+	ft_rotate(a, 'x');
+	ft_rotate(b, 'x');
+	ft_putendl_fd("rr", 2);
 }
 
-// rra reverse rotate a: Desplaza hacia abajo todos los elementos del stack a una posición, de forma que el último elemento se convierte en el primero.
-// rrb reverse rotate b: Desplaza hacia abajo todos los elementos del stack b una posición, de forma que el último elemento se convierte en el primero.
 void	ft_reverse_rotate(t_stack **stack, char c)
 {
-
+	if (!*stack)
+		return ;
+	*stack = (*stack)->past;
+	if (c == 'a')
+		ft_putendl_fd("ra", 2);
+	if (c == 'b')
+		ft_putendl_fd("rb", 2);
+	if (c == 'x')
+		return ;
+	else
+		ft_putendl_fd("ERROR: BAD STACK", 2);
 }
 
-// rrr rra y rrb al mismo tiempo
-void	ft_rr_rotate(stack_t **stack, char c)
+void	ft_rr_rotate(t_stack **a, t_stack **b, char c)
 {
-	void ft_reverse_rotate(t_stack * *stack, char a);
-	void ft_reverse_rotate(t_stack * *stack, char b);
+	ft_reverse_rotate(a, 'x');
+	ft_reverse_rotate(b, 'x');
+	ft_putendl_fd("rrr", 2);
 }

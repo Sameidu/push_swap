@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:49 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/20 09:40:51 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/24 10:35:43 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ void	ft_swap(t_stack **stack, char c)
 	t_stack	*aux_2;
 
     if (*stack == NULL || (*stack)->next == NULL)
-		return (0);
+		return ;
 	aux = (*stack);
 	aux_2 = (*stack)->next;
 	(*stack) = aux_2;
 	(*stack)->next = aux;
 	if (c == 'a')
-		ft_putendl_fd("sa\n", 2);
+		ft_putendl_fd("sa", 2);
 	else if (c == 'b')
-		ft_putendl_fd("sb\n", 2);
+		ft_putendl_fd("sb", 2);
 	else if (c == 'x')
 			return ;
 	else
@@ -40,5 +40,5 @@ void	ft_swap_ab(t_stack **a, t_stack **b, char c)
 {
     ft_swap(a, 'x');
 	ft_swap(b, 'x');
-	ft_putendl_fd("ss\n", 2);
+	ft_putendl_fd("ss", 2);
 }
