@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/26 12:15:31 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:49:23 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void	ft_isnum(char *str)
 
 	num = str;
 	if (!str)
-		ft_error("Error. Empty argument");
+		ft_error("ERROR: Empty argument");
 	if (*str == '-' || *str == '+')
 		str++;
 	if (*str == '\0')
-		ft_error("Error. No number after sign");
+		ft_error("ERROR: No number after sign");
 	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str))
-			ft_error("Error. Not a number");
+			ft_error("ERROR: Not a number");
 		str++;
 	}
 	aux = ft_atoi(num);
 	if (aux > INT_MAX || aux < INT_MIN)
-		ft_error("Error. Number out of range");
+		ft_error("ERROR: Number out of range");
 }
 
-void	ft_duplicate_arg(t_stack *stack)
+void	ft_duplicate(t_stack *stack)
 {
 	t_stack	*current;
 	t_stack	*next;
@@ -47,20 +47,20 @@ void	ft_duplicate_arg(t_stack *stack)
 		while (next != stack)
 		{
 			if (current->content == next->content)
-				ft_error("Error. Duplicate argument");
+				ft_error("ERROR: Duplicate number");
 			next = next->next;
 		}
 		current = current->next;
 	}
 }
 
-t_stack *ft_create_stack(char *str, t_stack **stack, int i)
+t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		ft_error("Error. Malloc failed");
+		ft_error("ERROR: Malloc failed");
 	new->content = ft_atoi(str);
 	new->index = i;
 	new = ((new->next), new->past);
@@ -89,7 +89,7 @@ t_stack	*ft_check(int argc, char **argv)
 		ft_push(&stack, ft_create_stack(argv[i], &stack, i), 'a');
 		i++;
 	}
-	ft_duplicate_arg(stack);
+	ft_duplicate(stack);
 	return (stack);
 }
 
