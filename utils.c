@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/23 10:35:51 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:15:31 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,62 @@ void	ft_isnum(char *str)
 		ft_error("Error. Number out of range");
 }
 
-void	ft_duplicate_arg(char **str)
+void	ft_duplicate_arg(t_stack *stack)
 {
-	int	i;
-	int	j;
+	t_stack	*current;
+	t_stack	*next;
 
-	i = 0;
-	while (str[i])
+	current = stack;
+	while (current)
 	{
-		j = i + 1;
-		while (str[j])
+		next = current->next;
+		while (next != stack)
 		{
-			if (ft_strcmp(str[i], str[j]) == 0)
+			if (current->content == next->content)
 				ft_error("Error. Duplicate argument");
-			j++;
+			next = next->next;
 		}
+		current = current->next;
+	}
+}
+
+t_stack *ft_create_stack(char *str, t_stack **stack, int i)
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		ft_error("Error. Malloc failed");
+	new->content = ft_atoi(str);
+	new->index = i;
+	new = ((new->next), new->past);
+	if (*stack == NULL)
+	{
+		*stack = new;
+		return (new);
+	}
+	new->next = *stack;
+	new->past = (*stack)->past;
+	(*stack)->past->next = new;
+	(*stack)->past = new;
+	return (new);
+}
+
+t_stack	*ft_check(int argc, char **argv)
+{
+	int		i;
+	t_stack	*stack;
+
+	i = 1;
+	stack = NULL;
+	while (i < argc)
+	{
+		ft_isnum(argv[i]);
+		ft_push(&stack, ft_create_stack(argv[i], &stack, i), 'a');
 		i++;
 	}
+	ft_duplicate_arg(stack);
+	return (stack);
 }
 
 void	ft_error(char *str)
