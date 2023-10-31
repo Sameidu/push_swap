@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/26 12:49:23 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:16:49 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,17 @@ t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
 		ft_error("ERROR: Malloc failed");
 	new->content = ft_atoi(str);
 	new->index = i;
-	new = ((new->next), new->past);
+	new->next = new;
+	new->past = new;
 	if (*stack == NULL)
-	{
 		*stack = new;
-		return (new);
+	else
+	{
+		new->next = *stack;
+		new->past = (*stack)->past;
+		(*stack)->past->next = new;
+		(*stack)->past = new;
 	}
-	new->next = *stack;
-	new->past = (*stack)->past;
-	(*stack)->past->next = new;
-	(*stack)->past = new;
 	return (new);
 }
 
@@ -86,7 +87,8 @@ t_stack	*ft_check(int argc, char **argv)
 	while (i < argc)
 	{
 		ft_isnum(argv[i]);
-		ft_push(&stack, ft_create_stack(argv[i], &stack, i), 'a');
+		stack = ft_create_stack(argv[i], &stack, i);
+		ft_push(&stack, &stack, 'a');
 		i++;
 	}
 	ft_duplicate(stack);

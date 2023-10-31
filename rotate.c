@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/24 10:33:49 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/31 10:57:06 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_rotate(t_stack **stack, char c)
 		ft_putendl_fd("ERROR: BAD STACK", 2);
 }
 
-void	ft_r_rotate(t_stack **a, t_stack **b, char c)
+void	ft_r_rotate(t_stack **a, t_stack **b)
 {
 	ft_rotate(a, 'x');
 	ft_rotate(b, 'x');
@@ -49,7 +49,7 @@ void	ft_reverse_rotate(t_stack **stack, char c)
 		ft_putendl_fd("ERROR: BAD STACK", 2);
 }
 
-void	ft_rr_rotate(t_stack **a, t_stack **b, char c)
+void	ft_rr_rotate(t_stack **a, t_stack **b)
 {
 	ft_reverse_rotate(a, 'x');
 	ft_reverse_rotate(b, 'x');

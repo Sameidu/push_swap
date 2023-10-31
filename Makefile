@@ -3,7 +3,11 @@ CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
 LFT			=	libft/libft.a
 OBJ			=	$(SRC:.c=.o)
-SRC			=	
+SRC			=	push_swap.c\
+				swap.c\
+				push.c\
+				rotate.c\
+				utils.c\
 
 				
 

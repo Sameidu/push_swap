@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/24 17:39:53 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/10/31 11:57:30 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	ft_push(t_stack **push, t_stack **dst, char c)
 	*push = ((node = *push), (*push)->next);
 	node->next = NULL;
 	if (*dst == NULL)
-	{
 		*dst = node;
-		node = ((node->next), node->past);
-	}
 	else
 	{
 		node->next = (*dst);
