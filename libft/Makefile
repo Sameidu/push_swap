@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+         #
+#    By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 16:43:22 by smeixoei          #+#    #+#              #
-#    Updated: 2023/06/20 16:43:24 by smeixoei         ###   ########.fr        #
+#    Updated: 2023/10/31 12:55:45 by smeixoei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,24 +50,22 @@ SRCS_MAIN = ft_isdigit.c\
 			ft_putnbr_fd.c\
 			ft_strtrim.c\
 			ft_split.c\
+			ft_lstnew_bonus.c\
+			ft_lstadd_front_bonus.c\
+			ft_lstsize_bonus.c\
+			ft_lstlast_bonus.c\
+			ft_lstadd_back_bonus.c\
+			ft_lstdelone_bonus.c\
+			ft_lstclear_bonus.c\
+			ft_lstiter_bonus.c\
+			ft_lstmap_bonus.c\
 
-SRCS_BONUS = ft_lstnew_bonus.c\
-				ft_lstadd_front_bonus.c\
-				ft_lstsize_bonus.c\
-				ft_lstlast_bonus.c\
-				ft_lstadd_back_bonus.c\
-				ft_lstdelone_bonus.c\
-				ft_lstclear_bonus.c\
-				ft_lstiter_bonus.c\
-				ft_lstmap_bonus.c\
 
 OBJS_MAIN = $(SRCS_MAIN:.c=.o)
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
 RM = rm -f
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
@@ -76,9 +74,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS_MAIN) $(INCLUDES)
 		$(LIB) $(NAME) $(OBJS_MAIN)
-
-bonus: $(OBJS_BONUS)
-	$(LIB) $(NAME) $(OBJS_BONUS)
 
 clean:
 	$(RM) $(OBJS_MAIN) $(OBJS_BONUS)

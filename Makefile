@@ -9,27 +9,34 @@ SRC			=	push_swap.c\
 				rotate.c\
 				utils.c\
 
-				
+COLOUR_GREEN=\033[0;32m
+COLOUR_RED=\033[0;31m
+COLOUR_BLUE=\033[0;34m
+COLOUR_END=\033[0m
 
-all:		$(MLX) $(LFT) $(NAME)
+all:		$(LFT) $(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -o $@ $^ $(LIB)
+			@$(CC) $(CFLAGS) -o $@ $^ $(LFT)
+			@echo "$(COLOUR_GREEN) [ OK ] | Push Swap ready! $(COLOUR_END)"
 
 $(LFT):		
-			@echo " [ .. ] | Compiling libft.."
+			@echo "$(COLOUR_BLUE) [ ... ] | Compiling libft.. $(COLOUR_END)"
 			@make -s -C libft
-			@echo " [ OK ] | Libft ready!"
+			@echo "$(COLOUR_GREEN) [ OK ] | Libft ready! $(COLOUR_END)"
+
+$(OBJ): %.o: %.c
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 			@make -s $@ -C libft
 			@rm -rf $(OBJ)
-			@echo "object files removed."
+			@echo "$(COLOUR_RED)Object files removed. $(COLOUR_END)"
 
 fclean:		clean
 			@make -s $@ -C libft
 			@rm -rf $(NAME)
-			@echo "binary file removed."
+			@echo "$(COLOUR_RED)Binary file removed. $(COLOUR_END)"
 
 re:			fclean all
 
