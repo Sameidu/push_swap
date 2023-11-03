@@ -8,6 +8,7 @@ SRC			=	push_swap.c\
 				push.c\
 				rotate.c\
 				utils.c\
+				checker.c\
 
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m

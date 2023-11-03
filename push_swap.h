@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/10/31 12:53:57 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/03 10:08:30 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ typedef struct s_stack
 	struct s_stack	*past;
 }	t_stack;
 
+//CHECKER
 void	ft_error(char *str);
 void	ft_isnum(char *str);
 t_stack	*ft_check(int argc, char **argv);
+void	ft_issorted(t_stack **a);
 
 //MOVIMIENTOS
 void	ft_swap(t_stack **stack, char c);

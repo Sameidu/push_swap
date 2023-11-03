@@ -6,97 +6,50 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/02 09:10:01 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/03 10:16:45 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	ft_isnum(char *str)
-{
-	long	aux;
-	char	*num;
-
-	num = str;
-	if (!str)
-		ft_error("ERROR: Empty argument");
-	if (*str == '-' || *str == '+')
-		str++;
-	if (*str == '\0')
-		ft_error("ERROR: No number after sign");
-	while (*str != '\0')
-	{
-		if (!ft_isdigit(*str))
-			ft_error("ERROR: Not a number");
-		str++;
-	}
-	aux = ft_atoi(num);
-	if (aux > INT_MAX || aux < INT_MIN)
-		ft_error("ERROR: Number out of range");
-}
-
-void	ft_duplicate(t_stack *stack)
+void	ft_issorted(t_stack **a)
 {
 	t_stack	*current;
 	t_stack	*next;
 
-	current = stack;
-	while (current)
+	current = *a;
+	next = current->next;
+	while (next != *a)
 	{
-		next = current->next;
-		while (next != stack)
-		{
-			if (current->content == next->content)
-				ft_error("ERROR: Duplicate number");
-			next = next->next;
-		}
+		if (current->content > next->content)
+			return ;
 		current = current->next;
+		next = next->next;
 	}
+	exit (0);
 }
 
-t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
+void	ft_find_max(t_stack **stack)
 {
-	t_stack	*new;
+	t_stack	*current;
+	t_stack	*next;
+	int		max;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		ft_error("ERROR: Malloc failed");
-	new->content = ft_atoi(str);
-	new->index = i;
-	new->next = new;
-	new->past = new;
-	if (*stack == NULL)
-		*stack = new;
-	else
+	current = *stack;
+	next = current->next;
+	max = current->content;
+	while (next != *stack)
 	{
-		new->next = *stack;
-		new->past = (*stack)->past;
-		(*stack)->past->next = new;
-		(*stack)->past = new;
+		if (current->content > max)
+			max = current->content;
+		current = current->next;
+		next = next->next;
 	}
-	return (new);
-}
-
-t_stack	*ft_check(int argc, char **argv)
-{
-	int		i;
-	t_stack	*stack;
-
-	i = 1;
-	stack = NULL;
-	while (i < argc)
-	{
-		ft_isnum(argv[i]);
-		stack = ft_create_stack(argv[i], &stack, i);
-		ft_push(&stack, &stack, 'a');
-		i++;
-	}
-	ft_duplicate(stack);
-	return (stack);
+	return (max);
 }
 
 void	ft_error(char *str)
 {
 	ft_putendl_fd(str, 2);
-	exit(0);
+	exit (0);
 }
