@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/14 11:22:23 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:14:19 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,4 @@ void	ft_sort3(t_stack **stack)
 		ft_rotate(stack, 'a');
 	}
 }
+

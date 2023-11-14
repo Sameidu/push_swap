@@ -6,12 +6,11 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:49 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/02 09:10:30 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:37:25 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
-
 
 void	ft_swap(t_stack **stack, char c)
 {
@@ -22,8 +21,11 @@ void	ft_swap(t_stack **stack, char c)
 		return ;
 	aux = (*stack);
 	aux_2 = (*stack)->next;
-	(*stack) = aux_2;
-	(*stack)->next = aux;
+	aux->next = aux_2->next;
+	aux_2->next->past = aux;
+	aux_2->next = aux;
+	aux->past = aux_2;
+	*stack = aux_2;
 	if (c == 'a')
 		ft_putendl_fd("sa", 2);
 	else if (c == 'b')

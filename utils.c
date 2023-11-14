@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/03 10:16:45 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:36:17 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_issorted(t_stack **a)
 	exit (0);
 }
 
-void	ft_find_max(t_stack **stack)
+int	ft_find_max(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*next;
