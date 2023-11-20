@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/03 09:55:39 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:00:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,28 @@ void	ft_isnum(char *str)
 		ft_error("ERROR: Number out of range");
 }
 
-void	ft_duplicate(t_stack *stack)
+void    ft_duplicate(t_stack **stack)
 {
-	t_stack	*current;
-	t_stack	*next;
+    t_stack *current;
+    t_stack *next;
+    t_stack *head;
 
-	current = stack;
-	while (current)
-	{
-		next = current->next;
-		while (next != stack)
-		{
-			if (current->content == next->content)
-				ft_error("ERROR: Duplicate number");
-			next = next->next;
-		}
-		current = current->next;
-	}
+    head = *stack;
+    current = *stack;
+    while (current)
+    {
+        printf("Current: %p, Content: %d\n", current, current->content);
+        next = current->next;
+        printf("Next: %p, Content: %d\n", next, next->content);
+        while (next != current && next != head)
+        {
+            printf("Next: %p, Content: %d\n", next, next->content);
+            if (current->content == next->content)
+                ft_error("ERROR: Duplicate number");
+            next = next->next;
+        }
+        current = current->next;
+    }
 }
 
 t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
@@ -91,6 +96,6 @@ t_stack	*ft_check(int argc, char **argv)
 		ft_push(&stack, &stack, 'a');
 		i++;
 	}
-	ft_duplicate(stack);
+	ft_duplicate(&stack);
 	return (stack);
 }
