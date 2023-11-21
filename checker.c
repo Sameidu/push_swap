@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 10:39:06 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:48:42 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,21 @@ void	ft_isnum(char *str)
 		ft_error("ERROR: Number out of range");
 }
 
-void    ft_duplicate(t_stack **stack)
+void ft_duplicate(t_stack **stack)
 {
     t_stack *current;
-    t_stack *next;
-    t_stack *head;
-
-    head = *stack;
-    current = *stack;
-	// printf("Current: %p, Content: %d\n", current, current->content);
-	// next = current->next;
-    // printf("Next: %p, Content: %d\n", next, next->content);
-    while (current && current != head)
-    {
-        printf("Current: %p, Content: %d\n", current, current->content);
-        next = current->next;
-        printf("Next: %p, Content: %d\n", next, next->content);
-        while (next != head)
-        {
-            printf("Next: %p, Content: %d\n", next, next->content);
-            if (current->content == next->content)
+	t_stack *compare;
+	
+	current = *stack;
+    if (!current)
+        return;
+    while (current != (*stack)->past) {
+        compare = current->next;
+        while (compare != *stack) {
+            if (current->content == compare->content) {
                 ft_error("ERROR: Duplicate number");
-            next = next->next;
+            }
+            compare = compare->next;
         }
         current = current->next;
     }
@@ -103,10 +96,6 @@ t_stack	*ft_check(int argc, char **argv)
 		}
 		i++;
 	}
-	printf("Final Stack: %p\n", stack);
-		printf("Node: %p, Content: %d\n", stack, stack->content);
-		printf("Node Next: %p, Content: %d\n", stack->next, stack->next->content);
-		printf("Node Past: %p, Content: %d\n", stack->past, stack->past->content);
 	ft_duplicate(&stack);
 	return (stack);
 }
