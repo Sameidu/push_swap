@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:45:10 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:55:15 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	a = ft_check(argc, argv);
 	ft_issorted(&a);
 	b = NULL;
+	ft_print_lst(&a);
+	ft_sort3(&a);
 	ft_print_lst(&a);
 		// Si no está ordenada iniciaar operaciones.
 	return (0);
