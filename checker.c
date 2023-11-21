@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/20 11:00:40 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:39:06 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,15 @@ void    ft_duplicate(t_stack **stack)
 
     head = *stack;
     current = *stack;
-    while (current)
+	// printf("Current: %p, Content: %d\n", current, current->content);
+	// next = current->next;
+    // printf("Next: %p, Content: %d\n", next, next->content);
+    while (current && current != head)
     {
         printf("Current: %p, Content: %d\n", current, current->content);
         next = current->next;
         printf("Next: %p, Content: %d\n", next, next->content);
-        while (next != current && next != head)
+        while (next != head)
         {
             printf("Next: %p, Content: %d\n", next, next->content);
             if (current->content == next->content)
@@ -59,7 +62,7 @@ void    ft_duplicate(t_stack **stack)
     }
 }
 
-t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
+t_stack	*ft_create_node(char *str, int i)
 {
 	t_stack	*new;
 
@@ -68,34 +71,42 @@ t_stack	*ft_create_stack(char *str, t_stack **stack, int i)
 		ft_error("ERROR: Malloc failed");
 	new->content = ft_atoi(str);
 	new->index = i;
-	new->next = new;
-	new->past = new;
-	if (*stack == NULL)
-		*stack = new;
-	else
-	{
-		new->next = *stack;
-		new->past = (*stack)->past;
-		(*stack)->past->next = new;
-		(*stack)->past = new;
-	}
-	return (new);
+	new->next = NULL;
+	new->past = NULL;
+	return new;
 }
 
 t_stack	*ft_check(int argc, char **argv)
 {
 	int		i;
 	t_stack	*stack;
+	t_stack *new_node;
 
 	i = 1;
 	stack = NULL;
 	while (i < argc)
 	{
 		ft_isnum(argv[i]);
-		stack = ft_create_stack(argv[i], &stack, i);
-		ft_push(&stack, &stack, 'a');
+		new_node = ft_create_node(argv[i], i);
+		if (stack == NULL)
+		{
+			stack = new_node;
+			stack->next = stack;
+			stack->past = stack;
+		}
+		else
+		{
+			new_node->next = stack;
+			new_node->past = stack->past;
+			stack->past->next = new_node;
+			stack->past = new_node;
+		}
 		i++;
 	}
+	printf("Final Stack: %p\n", stack);
+		printf("Node: %p, Content: %d\n", stack, stack->content);
+		printf("Node Next: %p, Content: %d\n", stack->next, stack->next->content);
+		printf("Node Past: %p, Content: %d\n", stack->past, stack->past->content);
 	ft_duplicate(&stack);
 	return (stack);
 }
