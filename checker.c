@@ -6,11 +6,11 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:17:57 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:43:31 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_isnum(char *str)
 {
@@ -35,24 +35,27 @@ void	ft_isnum(char *str)
 		ft_error("ERROR: Number out of range");
 }
 
-void ft_duplicate(t_stack **stack)
+void	ft_duplicate(t_stack **stack)
 {
-    t_stack *current;
-	t_stack *compare;
-	
+	t_stack	*current;
+	t_stack	*compare;
+
 	current = *stack;
-    if (!current)
-        return;
-    while (current != (*stack)->past) {
-        compare = current->next;
-        while (compare != *stack) {
-            if (current->content == compare->content) {
-                ft_error("ERROR: Duplicate number");
-            }
-            compare = compare->next;
-        }
-        current = current->next;
-    }
+	if (!current)
+		return ;
+	while (current != (*stack)->past)
+	{
+		compare = current->next;
+		while (compare != *stack)
+		{
+			if (current->content == compare->content)
+			{
+				ft_error("ERROR: Duplicate number");
+			}
+			compare = compare->next;
+		}
+		current = current->next;
+	}
 }
 
 t_stack	*ft_create_node(char *str, int i)
@@ -66,14 +69,14 @@ t_stack	*ft_create_node(char *str, int i)
 	new->index = i;
 	new->next = NULL;
 	new->past = NULL;
-	return new;
+	return (new);
 }
 
 t_stack	*ft_check(int argc, char **argv)
 {
 	int		i;
 	t_stack	*stack;
-	t_stack *new_node;
+	t_stack	*new_node;
 
 	i = ((stack = NULL), 1);
 	while (i < argc)

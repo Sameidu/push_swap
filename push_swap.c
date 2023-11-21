@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 09:37:02 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:45:10 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_print_lst(t_stack **stack)
 {
@@ -46,5 +46,3 @@ int	main(int argc, char **argv)
 		// Si no está ordenada iniciaar operaciones.
 	return (0);
 }
-
-// printf con con lstiter para ver que los datos de la lista se han actualizado al hacer los movimientos
