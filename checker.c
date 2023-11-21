@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 10:48:42 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:17:57 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ t_stack	*ft_check(int argc, char **argv)
 	t_stack	*stack;
 	t_stack *new_node;
 
-	i = 1;
-	stack = NULL;
+	i = ((stack = NULL), 1);
 	while (i < argc)
 	{
 		ft_isnum(argv[i]);
@@ -84,8 +83,7 @@ t_stack	*ft_check(int argc, char **argv)
 		if (stack == NULL)
 		{
 			stack = new_node;
-			stack->next = stack;
-			stack->past = stack;
+			stack->next = ((stack->past = stack), stack);
 		}
 		else
 		{
