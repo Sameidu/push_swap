@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:49 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:42:51 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:50:58 by sramis-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_swap(t_stack **stack, char c)
 	aux_2->next->past = aux;
 	aux_2->next = aux;
 	aux->past = aux_2;
+	aux->next->next = aux_2;
+	aux_2->past = aux->next;
 	*stack = aux_2;
 	if (c == 'a')
 		ft_putendl_fd("sa", 2);
