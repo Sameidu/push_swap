@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:50:50 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:06:41 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_error(char *str);
 void	ft_isnum(char *str);
 t_stack	*ft_check(int argc, char **argv);
 void	ft_issorted(t_stack **a);
+void	ft_print_lst(t_stack **stack);
 
 //MOVMENTS
 void	ft_swap(t_stack **stack, char c);

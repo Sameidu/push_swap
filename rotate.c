@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:42:50 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:07:38 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_rotate(t_stack **stack, char c)
 	if (c == 'x')
 		return ;
 	else
-		ft_putendl_fd("ERROR: BAD STACK", 2);
+		ft_putendl_fd("ERROR: Aqui", 2);
 }
 
 void	ft_r_rotate(t_stack **a, t_stack **b)

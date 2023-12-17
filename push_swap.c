@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/14 15:32:18 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:38:05 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,14 @@ int	main(int argc, char **argv)
 	ft_issorted(&a);
 	b = NULL;
 	ft_print_lst(&a);
-	//ft_sort3(&a);
-	ft_swap(&a, 'x');
+	ft_sort3(&a);
 	ft_print_lst(&a);
-	ft_reverse_rotate(&a, 'x');
-	ft_print_lst(&a);
-	ft_rotate(&a, 'x');
-	ft_print_lst(&a);
+	// ft_swap(&a, 'x');
+	// ft_print_lst(&a);
+	// ft_reverse_rotate(&a, 'x');
+	// ft_print_lst(&a);
+	// ft_rotate(&a, 'x');
+	// ft_print_lst(&a);
 	
 	return (0);
 }
