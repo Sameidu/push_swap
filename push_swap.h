@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/17 20:06:41 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:36:28 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_isnum(char *str);
 t_stack	*ft_check(int argc, char **argv);
 void	ft_issorted(t_stack **a);
 void	ft_print_lst(t_stack **stack);
+int	ft_lst_size(t_stack **stack);
+void	ft_push_tob(t_stack **a, t_stack **b);
 
 //MOVMENTS
 void	ft_swap(t_stack **stack, char c);

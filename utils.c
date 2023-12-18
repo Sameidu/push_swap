@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:42:54 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:21:53 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ void	ft_issorted(t_stack **a)
 		next = next->next;
 	}
 	exit (0);
+}
+
+int	ft_lst_size(t_stack **stack)
+{
+	int	lenght;
+	t_stack	*lst;
+
+	lenght = 0;
+	lst = *stack;
+	while (lst->next != *stack)
+	{
+		lenght++;
+		lst = lst->next;
+	}
+	++lenght;
+	return (lenght);
 }
 
 int	ft_find_max(t_stack **stack)
