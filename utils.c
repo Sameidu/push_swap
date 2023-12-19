@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/18 12:21:53 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:39:34 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,22 @@ int	ft_lst_size(t_stack **stack)
 	}
 	++lenght;
 	return (lenght);
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = *stack;
+	next = current->next;
+	while (next != *stack)
+	{
+		free(current);
+		current = next;
+		next = next->next;
+	}
+	free(current);
 }
 
 int	ft_find_max(t_stack **stack)
