@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/18 12:48:39 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:17:54 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,5 @@ void	ft_push_tob(t_stack **a, t_stack **b)
 	i = 0;
 	push = 0;
 	size = ft_lst_size(a);
-	while (i < size && push < size)
-	{
-		if ((*a)->content > (*a)->next->content)
-		{
-			ft_swap(a, 'a');
-			ft_push(a, b, 'b');
-			push++;
-		}
-		else
-			ft_rotate(a, 'a');
-		i++;
-	}
-	while (size - push > 3)
-	{
-		ft_push(a, b, 'b');
-		push++;
-	}
+	
 }
