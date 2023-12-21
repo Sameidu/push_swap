@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 11:11:42 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:25:21 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ typedef struct s_stack
 {
 	int				index;
 	int				content;
-	int				pos;
 	int				target;
-	int				pos_a;
-	int				pos_b;
+	int				pos;
+	int				moves_a;
+	int				moves_b;
 	struct s_stack	*next;
 	struct s_stack	*past;
 }	t_stack;
@@ -38,7 +38,7 @@ t_stack	*ft_check(int argc, char **argv);
 void	ft_issorted(t_stack **a);
 t_stack	*ft_create_node(char *str);
 void	ft_print_lst(t_stack **stack);
-int	ft_lst_size(t_stack **stack);
+int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
 
 //MOVMENTS
@@ -52,5 +52,6 @@ void	ft_rr_rotate(t_stack **a, t_stack **b);
 
 //ALGO
 void	ft_sort3(t_stack **stack);
+void	ft_getpos(t_stack **stack);
 
 #endif

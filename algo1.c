@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 10:24:08 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:19:02 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,19 @@ void	ft_push_tob(t_stack **a, t_stack **b)
     int size;
 	
 	size = ft_lst_size(a);
-	printf("size: %d\n", size);
     while (size > 3)
     {
         ft_push(a, b, 'b');
         size = ft_lst_size(a);
     }
+}
+
+void sort(t_stack **a, t_stack **b)
+{
+	ft_push_tob(a, b);
+	ft_sort3(a);
+	while (*b)
+	{
+		
+	}
 }
