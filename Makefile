@@ -4,6 +4,7 @@ CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
 LFT			=	libft/libft.a
 OBJ			=	$(SRC:.c=.o)
 SRC			=	push_swap.c\
+				lst.c\
 				swap.c\
 				push.c\
 				rotate.c\

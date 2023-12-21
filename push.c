@@ -6,30 +6,44 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 10:35:58 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:39:18 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_stack **push, t_stack **dst, char c)
+void	ft_push_moves(t_stack **push, t_stack **dst, t_stack *node)
 {
-	t_stack	*node;
-
 	if (*push == NULL)
-		return ;
-	*push = ((node = *push), (*push)->next);
-	node->next = NULL;
-	if (*dst == NULL)
-		*dst = node;
+		return;
 	else
 	{
-		node->next = (*dst);
+		*push = (*push)->next;
+		(*push)->past = node->past;
+		(*push)->past->next = *push;
+	}
+	node->next = NULL;
+	if (*dst == NULL)
+	{
+		node->past = node;
+		node->next = node;
+		*dst = node;
+	}
+	else
+	{
+		node->next = *dst;
 		node->past = (*dst)->past;
 		(*dst)->past->next = node;
 		(*dst)->past = node;
 		*dst = node;
 	}
+}
+void	ft_push(t_stack **push, t_stack **dst, char c)
+{
+	t_stack	*node;
+
+	node = *push;
+	ft_push_moves(push, dst, node);
 	if (c == 'a')
 		ft_putendl_fd("pa", 2);
 	else if (c == 'b')

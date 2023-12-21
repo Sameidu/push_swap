@@ -6,30 +6,11 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/18 12:44:51 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:36:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_lst(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*next;
-
-	current = *stack;
-	next = current->next;
-	while (next != *stack)
-	{
-		ft_putnbr_fd(current->content, 1);
-		ft_putchar_fd(' ', 1);
-		current = current->next;
-		next = next->next;
-	}
-	ft_putnbr_fd(current->content, 1);
-	ft_putchar_fd('\n', 1);
-	return ;
-}
 
 int	main(int argc, char **argv)
 {
@@ -47,13 +28,8 @@ int	main(int argc, char **argv)
 	printf("size: %d\n", ft_lst_size(&a));
 	ft_push_tob(&a, &b);
 	ft_print_lst(&b);
-	printf("size: %d\n", ft_lst_size(&b));
-	// ft_swap(&a, 'x');
-	// ft_print_lst(&a);
-	// ft_reverse_rotate(&a, 'x');
-	// ft_print_lst(&a);
-	// ft_rotate(&a, 'x');
-	// ft_print_lst(&a);
-	
+	ft_print_lst(&a);
+	printf("size_B: %d\n", ft_lst_size(&b));
+	printf("size_A: %d\n", ft_lst_size(&a));
 	return (0);
 }

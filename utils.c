@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/19 12:39:34 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:01:28 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ void	ft_issorted(t_stack **a)
 	exit (0);
 }
 
-int	ft_lst_size(t_stack **stack)
-{
-	int	lenght;
-	t_stack	*lst;
-
-	lenght = 0;
-	lst = *stack;
-	while (lst->next != *stack)
-	{
-		lenght++;
-		lst = lst->next;
-	}
-	++lenght;
-	return (lenght);
-}
-
 void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*current;
@@ -59,25 +43,6 @@ void	ft_free_stack(t_stack **stack)
 		next = next->next;
 	}
 	free(current);
-}
-
-int	ft_find_max(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*next;
-	int		max;
-
-	current = *stack;
-	next = current->next;
-	max = current->content;
-	while (next != *stack)
-	{
-		if (current->content > max)
-			max = current->content;
-		current = current->next;
-		next = next->next;
-	}
-	return (max);
 }
 
 void	ft_error(char *str)

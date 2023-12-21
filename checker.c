@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:43:31 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:00:42 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,6 @@ void	ft_duplicate(t_stack **stack)
 	}
 }
 
-t_stack	*ft_create_node(char *str, int i)
-{
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		ft_error("ERROR: Malloc failed");
-	new->content = ft_atoi(str);
-	new->index = i;
-	new->next = NULL;
-	new->past = NULL;
-	return (new);
-}
-
 t_stack	*ft_check(int argc, char **argv)
 {
 	int		i;
@@ -82,7 +68,7 @@ t_stack	*ft_check(int argc, char **argv)
 	while (i < argc)
 	{
 		ft_isnum(argv[i]);
-		new_node = ft_create_node(argv[i], i);
+		new_node = ft_create_node(argv[i]);
 		if (stack == NULL)
 		{
 			stack = new_node;
