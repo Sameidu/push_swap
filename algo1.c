@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 12:19:02 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:47:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void sort(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	while (*b)
 	{
-		
+		ft_get_index(a);
+		ft_get_index(b);
+
 	}
 }

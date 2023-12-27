@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 12:22:24 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:55:21 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,26 @@ int	ft_lst_size(t_stack **stack)
 	return (lenght);
 }
 
-void	ft_getpos(t_stack **stack)
+void	ft_get_index(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*next;
 	int		i;
 
+	if (!*stack)
+		return ;
 	i = 0;
 	current = *stack;
 	next = current->next;
 	while (next != *stack)
 	{
-		current->pos = i;
+		current->index = i;
 		current = current->next;
 		next = next->next;
 		i++;
 	}
-	current->pos = i;
-	return ;
+	current->index = i;
+	return;
 }
 
 void	ft_print_lst(t_stack **stack)
