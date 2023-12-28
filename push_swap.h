@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/27 12:32:17 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:40:54 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,16 @@ void	ft_push_tob(t_stack **a, t_stack **b);
 void	ft_swap(t_stack **stack, char c);
 void	ft_swap_ab(t_stack **a, t_stack **b);
 void	ft_push(t_stack **push, t_stack **dst, char c);
+void	ft_push_tob(t_stack **a, t_stack **b);
 void	ft_rotate(t_stack **stack, char c);
 void	ft_r_rotate(t_stack **a, t_stack **b);
 void	ft_reverse_rotate(t_stack **stack, char c);
 void	ft_rr_rotate(t_stack **a, t_stack **b);
 
 //ALGO
+void	ft_sort(t_stack **a, t_stack **b);
 void	ft_sort3(t_stack **stack);
 void	ft_get_index(t_stack **stack);
+void	ft_get_target(t_stack **a, t_stack **b);
 
 #endif

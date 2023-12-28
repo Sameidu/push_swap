@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/27 12:47:40 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:39:24 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,18 @@ void	ft_sort3(t_stack **stack)
 	}
 }
 
-void	ft_push_tob(t_stack **a, t_stack **b)
+void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 {
-    int size;
-	
-	size = ft_lst_size(a);
-    while (size > 3)
-    {
-        ft_push(a, b, 'b');
-        size = ft_lst_size(a);
-    }
+	t_stack	tmp_a;
+	t_stack	tmp_b;
+	int		size_a;
+	int		size_b;
+
+	size_a = ft_lst_size(a);
+	size_b = ft_lst_size(b);
 }
 
-void sort(t_stack **a, t_stack **b)
+void	ft_sort(t_stack **a, t_stack **b)
 {
 	ft_push_tob(a, b);
 	ft_sort3(a);
@@ -61,6 +60,6 @@ void sort(t_stack **a, t_stack **b)
 	{
 		ft_get_index(a);
 		ft_get_index(b);
-
+		ft_get_target(a, b);
 	}
 }

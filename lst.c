@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/27 12:55:21 by smeixoei         ###   ########.fr       */
+/*   Updated: 2023/12/28 11:35:15 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,37 @@ int	ft_lst_size(t_stack **stack)
 	return (lenght);
 }
 
+void	ft_print_lst(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = *stack;
+	next = current->next;
+	while (next != *stack)
+	{
+		ft_putnbr_fd(current->content, 1);
+		ft_putchar_fd(' ', 1);
+		current = current->next;
+		next = next->next;
+	}
+	ft_putnbr_fd(current->content, 1);
+	ft_putchar_fd('\n', 1);
+	return ;
+}
+
+void	ft_push_tob(t_stack **a, t_stack **b)
+{
+    int size;
+	
+	size = ft_lst_size(a);
+    while (size > 3)
+    {
+        ft_push(a, b, 'b');
+        size = ft_lst_size(a);
+    }
+}
+
 void	ft_get_index(t_stack **stack)
 {
 	t_stack	*current;
@@ -49,26 +80,31 @@ void	ft_get_index(t_stack **stack)
 		i++;
 	}
 	current->index = i;
-	return;
+	return ;
 }
 
-void	ft_print_lst(t_stack **stack)
+void	ft_get_target(t_stack **a, t_stack **b)
 {
-	t_stack	*current;
-	t_stack	*next;
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+	int		i;
 
-	current = *stack;
-	next = current->next;
-	while (next != *stack)
+	tmp_b = *b;
+	while (tmp_b->next != *b)
 	{
-		ft_putnbr_fd(current->content, 1);
-		ft_putchar_fd(' ', 1);
-		current = current->next;
-		next = next->next;
+		i = 0;
+		tmp_a = *a;
+		while (tmp_a->next != *a)
+		{
+			if (tmp_a->content < tmp_b->content)
+				tmp_b->target = i;
+			tmp_a = tmp_a->next;
+			i++;
+		}
+		if (tmp_a->content < tmp_b->content)
+			tmp_b->target = i;
+		tmp_b = tmp_b->next;
 	}
-	ft_putnbr_fd(current->content, 1);
-	ft_putchar_fd('\n', 1);
-	return ;
 }
 
 t_stack	*ft_create_node(char *str)
