@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/29 09:07:37 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:25:54 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_stack	*ft_create_node(char *str);
 void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
+void	ft_value(int nbr);
 
 //MOVMENTS
 void	ft_swap(t_stack **stack, char c);

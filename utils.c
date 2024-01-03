@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 11:01:28 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:24:43 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void	ft_free_stack(t_stack **stack)
 		next = next->next;
 	}
 	free(current);
+}
+
+void	ft_value(int nbr)
+{
+	if (nbr < 0)
+		return (nbr * (-1));
+	return (nbr);
 }
 
 void	ft_error(char *str)

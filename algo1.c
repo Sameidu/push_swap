@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/29 12:06:25 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:29:27 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,58 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 
 void	ft_do_cheap(t_stack **a, t_stack **b)
 {
-	
+	t_stack	*stack_b;
+	int		cheap;
+	int		i;
+	int		dst_a;
+	int		dst_b;
+
+	stack_b = *b;
+	cheap = INT_MAX;
+	while (stack_b->next != *b)
+	{
+		i = ft_chooseer(stack_b);
+		if (i < ft_value(cheap))
+		{
+			cheap = i;
+			dst_a = stack_b->moves_a;
+			dst_b = stack_b->moves_b;
+		}
+		stack_b = stack_b->next;
+	}
+	i = ft_chooseer(stack_b);
+	if (i < ft_value(cheap))
+	{
+		cheap = i;
+		dst_a = stack_b->moves_a;
+		dst_b = stack_b->moves_b;
+	}
+	ft_move(a, b, dst_a, dst_b);
+}
+
+void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
+{
+	if (dst_a > 0 && dst_b > 0)
+	{
+		while (dst_a-- && dst_b--)
+			ft_rr_rotate(a, b);
+	}
+	else if (dst_a < 0 && dst_b < 0)
+	{
+		while (dst_a++ && dst_b++)
+			ft_rotate(a, b);
+	}
+	else if (dst_a > 0 && dst_b < 0)
+	{
+		while (dst_a-- && dst_b++)
+			ft_r_rotate(a, b);
+	}
+	else if (dst_a < 0 && dst_b > 0)
+	{
+		while (dst_a++ && dst_b--)
+			ft_reverse_rotate(a, b);
+	}
+	ft_push(a, b, 'a');
 }
 
 void	ft_sort(t_stack **a, t_stack **b)
