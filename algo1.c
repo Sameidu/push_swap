@@ -6,7 +6,7 @@
 /*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/03 12:29:27 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/04 13:01:25 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ void	ft_sort3(t_stack **stack)
 
 void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 	int		size_a;
 	int		size_b;
 
-	tmp_a = *a;
 	tmp_b = *b;
 	size_a = ft_lst_size(a);
 	size_b = ft_lst_size(b);
@@ -71,6 +69,31 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 	return ;
 }
 
+int	ft_pick(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	if (tmp->moves_a * tmp->moves_b < 0)
+		return (ft_value(tmp->moves_a) + ft_value(tmp->moves_b));
+	else if (tmp->moves_a * tmp->moves_b > 0)
+	{
+		if (ft_value(tmp->moves_a) >= ft_value(tmp->moves_b))
+			return (ft_value(tmp->moves_a));
+		else
+			return (ft_value(tmp->moves_b));
+	}
+	else if (tmp->moves_a == 0)
+		return (ft_value(tmp->moves_a));
+	else
+		return (ft_value(tmp->moves_b));
+}
+
+void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
+{
+
+}
+
 void	ft_do_cheap(t_stack **a, t_stack **b)
 {
 	t_stack	*stack_b;
@@ -83,7 +106,7 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 	cheap = INT_MAX;
 	while (stack_b->next != *b)
 	{
-		i = ft_chooseer(stack_b);
+		i = ft_pick(stack_b);
 		if (i < ft_value(cheap))
 		{
 			cheap = i;
@@ -92,7 +115,7 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 		}
 		stack_b = stack_b->next;
 	}
-	i = ft_chooseer(stack_b);
+	i = ft_pick(stack_b);
 	if (i < ft_value(cheap))
 	{
 		cheap = i;
@@ -100,31 +123,6 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 		dst_b = stack_b->moves_b;
 	}
 	ft_move(a, b, dst_a, dst_b);
-}
-
-void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
-{
-	if (dst_a > 0 && dst_b > 0)
-	{
-		while (dst_a-- && dst_b--)
-			ft_rr_rotate(a, b);
-	}
-	else if (dst_a < 0 && dst_b < 0)
-	{
-		while (dst_a++ && dst_b++)
-			ft_rotate(a, b);
-	}
-	else if (dst_a > 0 && dst_b < 0)
-	{
-		while (dst_a-- && dst_b++)
-			ft_r_rotate(a, b);
-	}
-	else if (dst_a < 0 && dst_b > 0)
-	{
-		while (dst_a++ && dst_b--)
-			ft_reverse_rotate(a, b);
-	}
-	ft_push(a, b, 'a');
 }
 
 void	ft_sort(t_stack **a, t_stack **b)

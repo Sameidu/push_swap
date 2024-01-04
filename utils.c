@@ -6,7 +6,7 @@
 /*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/03 12:24:43 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/04 11:33:46 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_free_stack(t_stack **stack)
 	free(current);
 }
 
-void	ft_value(int nbr)
+int	ft_value(int nbr)
 {
 	if (nbr < 0)
 		return (nbr * (-1));
