@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/29 09:06:59 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:44:29 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_lst_size(t_stack **stack)
 {
-	int	lenght;
+	int		lenght;
 	t_stack	*lst;
 
 	if (!*stack)
@@ -51,14 +51,14 @@ void	ft_print_lst(t_stack **stack)
 
 void	ft_push_tob(t_stack **a, t_stack **b)
 {
-    int size;
-	
+	int	size;
+
 	size = ft_lst_size(a);
-    while (size > 3)
-    {
-        ft_push(a, b, 'b');
-        size = ft_lst_size(a);
-    }
+	while (size > 3)
+	{
+		ft_push(a, b, 'b');
+		size = ft_lst_size(a);
+	}
 }
 
 void	ft_get_index(t_stack **stack)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/04 13:01:25 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/08 18:43:07 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	ft_pick(t_stack *stack)
 
 void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
 {
-
+	
 }
 
 void	ft_do_cheap(t_stack **a, t_stack **b)
@@ -102,15 +102,13 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 	int		dst_a;
 	int		dst_b;
 
-	stack_b = *b;
-	cheap = INT_MAX;
+	stack_b = ((cheap = INT_MAX), *b);
 	while (stack_b->next != *b)
 	{
 		i = ft_pick(stack_b);
 		if (i < ft_value(cheap))
 		{
-			cheap = i;
-			dst_a = stack_b->moves_a;
+			cheap = ((dst_a = stack_b->moves_a), i);
 			dst_b = stack_b->moves_b;
 		}
 		stack_b = stack_b->next;
@@ -118,8 +116,7 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 	i = ft_pick(stack_b);
 	if (i < ft_value(cheap))
 	{
-		cheap = i;
-		dst_a = stack_b->moves_a;
+		cheap = ((dst_a = stack_b->moves_a), i);
 		dst_b = stack_b->moves_b;
 	}
 	ft_move(a, b, dst_a, dst_b);

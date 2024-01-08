@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/04 11:49:53 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/08 18:41:41 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 
 typedef struct s_stack
 {
-	int				content; //number
-	int				index; //index of the number
-	int				target; //target position
-	int				pos; //position of the number
-	int				moves_a; //moves to the target
-	int				moves_b; //moves to the target
+	int				content;
+	int				index;
+	int				target;
+	int				pos;
+	int				moves_a;
+	int				moves_b;
 	struct s_stack	*next;
 	struct s_stack	*past;
 }	t_stack;

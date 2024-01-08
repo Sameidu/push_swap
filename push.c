@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 11:39:18 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:45:02 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_push_moves(t_stack **push, t_stack **dst, t_stack *node)
 {
 	if (*push == NULL)
-		return;
+		return ;
 	else
 	{
 		*push = (*push)->next;
@@ -38,6 +38,7 @@ void	ft_push_moves(t_stack **push, t_stack **dst, t_stack *node)
 		*dst = node;
 	}
 }
+
 void	ft_push(t_stack **push, t_stack **dst, char c)
 {
 	t_stack	*node;
