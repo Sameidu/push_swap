@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/08 18:45:02 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/09 10:43:47 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_push_moves(t_stack **push, t_stack **dst, t_stack *node)
 {
-	if (*push == NULL)
-		return ;
+	if (ft_lst_size(push) == 1)
+		*push = NULL;
 	else
 	{
 		*push = (*push)->next;

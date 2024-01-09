@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/08 18:41:41 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:12:51 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_rotate(t_stack **stack, char c);
 void	ft_r_rotate(t_stack **a, t_stack **b);
 void	ft_reverse_rotate(t_stack **stack, char c);
 void	ft_rr_rotate(t_stack **a, t_stack **b);
+void	loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char x);
 
 //ALGO
 void	ft_sort(t_stack **a, t_stack **b);
