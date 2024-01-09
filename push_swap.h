@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/09 11:12:51 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:22:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stack
 void	ft_error(char *str);
 void	ft_isnum(char *str);
 t_stack	*ft_check(int argc, char **argv);
-void	ft_issorted(t_stack **a);
+int		ft_issorted(t_stack **a);
 t_stack	*ft_create_node(char *str);
 void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);

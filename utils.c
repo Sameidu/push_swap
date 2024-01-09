@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/04 11:33:46 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/09 20:22:19 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_issorted(t_stack **a)
+int	ft_issorted(t_stack **a)
 {
 	t_stack	*current;
 	t_stack	*next;
@@ -22,11 +22,11 @@ void	ft_issorted(t_stack **a)
 	while (next != *a)
 	{
 		if (current->content > next->content)
-			return ;
+			return (0);
 		current = current->next;
 		next = next->next;
 	}
-	exit (0);
+	return (1);
 }
 
 void	ft_free_stack(t_stack **stack)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/09 12:01:02 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:34:06 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,27 @@ void	ft_sort3(t_stack **stack)
 	t_stack	*prev;
 
 	current = *stack;
-	next = current->next;
-	prev = current->past;
+	next = ((prev = current->past), current->next);
 	if (current->content > next->content
 		&& current->content < prev->content)
 		ft_swap(stack, 'a');
-	else if (current->content > next->content
-		&& current->content > prev->content)
-	{
-		ft_swap(stack, 'a');
-		ft_reverse_rotate(stack, 'a');
-	}
 	else if (current->content < next->content
 		&& current->content > prev->content)
-		ft_rotate(stack, 'a');
+		ft_reverse_rotate(stack, 'a');
 	else if (current->content < next->content
 		&& current->content < prev->content)
 	{
 		ft_swap(stack, 'a');
 		ft_rotate(stack, 'a');
 	}
+	else if (current->content > next->content
+		&& current->content > prev->content)
+	{
+		ft_rotate(stack, 'a');
+		if (next->content > prev->content)
+			ft_swap(stack, 'a');
+	}
+	ft_print_lst(stack);
 }
 
 void	ft_calc_moves_ab(t_stack **a, t_stack **b)
@@ -125,6 +126,7 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 	int		dst_b;
 
 	stack_b = ((cheap = INT_MAX), *b);
+
 	while (stack_b->next != *b)
 	{
 		i = ft_pick(stack_b);
@@ -134,6 +136,9 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 			dst_b = stack_b->moves_b;
 		}
 		stack_b = stack_b->next;
+			printf("movess_b:%d\n", dst_b);
+		printf("movess_a:%d\n", dst_a);
+		printf("cheap:%d\n", cheap);
 	}
 	i = ft_pick(stack_b);
 	if (i < ft_value(cheap))
@@ -147,7 +152,8 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 void	ft_sort(t_stack **a, t_stack **b)
 {
 	ft_push_tob(a, b);
-	ft_sort3(a);
+	if (ft_issorted(a) == 0)
+		ft_sort3(a);
 	while (*b)
 	{
 		ft_get_index(a);

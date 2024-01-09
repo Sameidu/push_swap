@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/09 11:29:30 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:15:27 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	ft_rotate(t_stack **stack, char c)
 		ft_putendl_fd("rb", 2);
 	if (c == 'x')
 		return ;
-	else
-		ft_putendl_fd("ERROR: Aqui", 2);
 }
 
 void	ft_r_rotate(t_stack **a, t_stack **b)
@@ -40,13 +38,11 @@ void	ft_reverse_rotate(t_stack **stack, char c)
 		return ;
 	*stack = (*stack)->past;
 	if (c == 'a')
-		ft_putendl_fd("ra", 2);
+		ft_putendl_fd("rra", 2);
 	if (c == 'b')
-		ft_putendl_fd("rb", 2);
+		ft_putendl_fd("rrb", 2);
 	if (c == 'x')
 		return ;
-	else
-		ft_putendl_fd("ERROR: BAD STACK", 2);
 }
 
 void	ft_rr_rotate(t_stack **a, t_stack **b)
