@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/10 11:56:38 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/10 12:53:14 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,11 @@ void	ft_get_target(t_stack **a, t_stack **b)
 	tmp_a = *a;
 	tmp_b = *b;
 	index = INT_MAX;
-	printf("index_a:%d\n", tmp_a->index);
-	while (tmp_a != *a)
+	while (tmp_a->next != *a)
 	{
+		printf("index_a:%d\n", tmp_a->index);
+		printf("index_a_next:%d\n", tmp_a->next->index);
+		printf("index_a_past:%d\n", tmp_a->past->index);
 		if (tmp_a->index > tmp_b->index && tmp_a->index < index)
 			index = tmp_a->index;
 		tmp_b->target = index;
@@ -103,7 +105,7 @@ void	ft_get_target(t_stack **a, t_stack **b)
 	if (index != INT_MAX)
 		return ;
 	tmp_a = *a;
-	while (tmp_a != *a)
+	while (tmp_a->next != *a)
 	{
 		if (tmp_a->index < index)
 			index = tmp_a->index;

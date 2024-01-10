@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/10 11:52:43 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/10 12:54:27 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,9 +160,10 @@ void	ft_sort(t_stack **a, t_stack **b)
 	{
 		ft_get_index(a);
 		ft_get_index(b);
-		// printf("a:%d\n", (*a)->index);
+		printf("a:%d\n", (*a)->index);
+		printf("a_next:%d\n", (*a)->next->index);
+		printf("a_past:%d\n", (*a)->past->index);
 		// printf("b:%d\n", (*b)->index);
-		// printf("a_next:%d\n", (*a)->next->index);
 		// printf("b_next:%d\n", (*b)->next->index);
 		ft_get_target(a, b);
 		ft_calc_moves_ab(a, b);
