@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/08 18:44:29 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:56:38 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,24 +87,30 @@ void	ft_get_target(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
-	int		i;
+	int		index;
 
+	tmp_a = *a;
 	tmp_b = *b;
-	while (tmp_b->next != *b)
+	index = INT_MAX;
+	printf("index_a:%d\n", tmp_a->index);
+	while (tmp_a != *a)
 	{
-		i = 0;
-		tmp_a = *a;
-		while (tmp_a->next != *a)
-		{
-			if (tmp_a->content < tmp_b->content)
-				tmp_b->target = i;
-			tmp_a = tmp_a->next;
-			i++;
-		}
-		if (tmp_a->content < tmp_b->content)
-			tmp_b->target = i;
-		tmp_b = tmp_b->next;
+		if (tmp_a->index > tmp_b->index && tmp_a->index < index)
+			index = tmp_a->index;
+		tmp_b->target = index;
+		tmp_a = tmp_a->next;
 	}
+	if (index != INT_MAX)
+		return ;
+	tmp_a = *a;
+	while (tmp_a != *a)
+	{
+		if (tmp_a->index < index)
+			index = tmp_a->index;
+		tmp_b->target = index;
+		tmp_a = tmp_a->next;
+	}
+	return ;
 }
 
 t_stack	*ft_create_node(char *str)
