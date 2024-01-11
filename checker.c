@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2023/12/21 11:00:42 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:58:46 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,35 @@ void	ft_duplicate(t_stack **stack)
 	}
 }
 
+void	ft_put_pos(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*aux;
+	int		pos;
+
+	tmp = *stack;
+	while (tmp->next != *stack)
+	{
+		aux = ((pos = 1), *stack);
+		while (aux->next != *stack)
+		{
+			if (tmp->content > aux->content)
+				pos++;
+			aux = aux->next;
+		}
+		tmp = ((tmp->pos = pos), tmp->next);
+	}
+	aux = ((pos = 1), *stack);
+    while (aux->next != *stack)
+    {
+        if (tmp->content > aux->content)
+            pos++;
+        aux = aux->next;
+    }
+    tmp->pos = pos;
+	return ;
+}
+
 t_stack	*ft_check(int argc, char **argv)
 {
 	int		i;
@@ -76,13 +105,13 @@ t_stack	*ft_check(int argc, char **argv)
 		}
 		else
 		{
-			new_node->next = stack;
-			new_node->past = stack->past;
+			new_node->past = ((new_node->next = stack), stack->past);
 			stack->past->next = new_node;
 			stack->past = new_node;
 		}
 		i++;
 	}
 	ft_duplicate(&stack);
+	ft_put_pos(&stack);
 	return (stack);
 }

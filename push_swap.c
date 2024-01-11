@@ -3,14 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/10 10:26:24 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/11 12:13:39 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort3(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*next;
+	t_stack	*prev;
+
+	current = *stack;
+	next = ((prev = current->past), current->next);
+	if (current->content > next->content
+		&& current->content < prev->content)
+		ft_swap(stack, 'a');
+	else if (current->content < next->content
+		&& current->content > prev->content)
+		ft_reverse_rotate(stack, 'a');
+	else if (current->content < next->content
+		&& current->content < prev->content)
+	{
+		ft_swap(stack, 'a');
+		ft_rotate(stack, 'a');
+	}
+	else if (current->content > next->content
+		&& current->content > prev->content)
+	{
+		ft_rotate(stack, 'a');
+		if (next->content > prev->content)
+			ft_swap(stack, 'a');
+	}
+	ft_print_lst(stack);
+}
 
 int	main(int argc, char **argv)
 {

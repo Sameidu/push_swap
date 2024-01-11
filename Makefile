@@ -10,7 +10,8 @@ SRC			=	push_swap.c\
 				rotate.c\
 				utils.c\
 				checker.c\
-				algo1.c\
+				sort.c\
+				dst.c\
 
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m

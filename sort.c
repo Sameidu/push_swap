@@ -1,45 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo1.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/10 12:54:27 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:13:54 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_sort3(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*next;
-	t_stack	*prev;
-
-	current = *stack;
-	next = ((prev = current->past), current->next);
-	if (current->content > next->content
-		&& current->content < prev->content)
-		ft_swap(stack, 'a');
-	else if (current->content < next->content
-		&& current->content > prev->content)
-		ft_reverse_rotate(stack, 'a');
-	else if (current->content < next->content
-		&& current->content < prev->content)
-	{
-		ft_swap(stack, 'a');
-		ft_rotate(stack, 'a');
-	}
-	else if (current->content > next->content
-		&& current->content > prev->content)
-	{
-		ft_rotate(stack, 'a');
-		if (next->content > prev->content)
-			ft_swap(stack, 'a');
-	}
-}
 
 void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 {
@@ -50,12 +21,13 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 	tmp_b = *b;
 	size_a = ft_lst_size(a);
 	size_b = ft_lst_size(b);
-	// printf("index:%d\n", tmp_b->index);
-	// printf("target:%d\n", tmp_b->target);
-	// printf("size_a:%d\n", size_a);
+	printf("target:%d\n", tmp_b->target);
+	printf("size_a:%d\n", size_a);
 	while (tmp_b->next != *b)
 	{
 		tmp_b->moves_b = tmp_b->index;
+		printf("index:%d\n", tmp_b->index);
+		printf("moves_b:%d\n", tmp_b->moves_b);
 		if (tmp_b->index > size_b / 2)
 			tmp_b->moves_b = (size_b - tmp_b->index) * -1;
 		tmp_b->moves_a = tmp_b->target;
@@ -69,8 +41,8 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 	tmp_b->moves_a = tmp_b->target;
 	if (tmp_b->target > size_a / 2)
 		tmp_b->moves_a = (size_a - tmp_b->target) * -1;
-		// printf("moves_b:%d\n", tmp_b->moves_b);
-		// printf("moves_a:%d\n", tmp_b->moves_a);
+		printf("moves_b:%d\n", tmp_b->moves_b);
+		printf("moves_a:%d\n", tmp_b->moves_a);
 	return ;
 }
 
@@ -160,13 +132,10 @@ void	ft_sort(t_stack **a, t_stack **b)
 	{
 		ft_get_index(a);
 		ft_get_index(b);
-		printf("a:%d\n", (*a)->index);
-		printf("a_next:%d\n", (*a)->next->index);
-		printf("a_past:%d\n", (*a)->past->index);
-		// printf("b:%d\n", (*b)->index);
-		// printf("b_next:%d\n", (*b)->next->index);
 		ft_get_target(a, b);
 		ft_calc_moves_ab(a, b);
+		// printf("moves_b:%d\n", (*b)->moves_b);
+		// printf("moves_a:%d\n", (*b)->moves_a);
 		ft_do_cheap(a, b);
 		ft_print_lst(a);
 	}
