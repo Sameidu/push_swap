@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/11 12:13:39 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:07:18 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	if (argc < 2)
+		return (0);
 	a = NULL;
 	a = ft_check(argc, argv);
 	if (!a || ft_issorted(&a) == 1)

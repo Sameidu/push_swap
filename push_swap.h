@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/11 12:13:45 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:08:46 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 	int				content;
 	int				index;
 	int				target;
-	int				pos;
+	int				fpos;
 	int				moves_a;
 	int				moves_b;
 	struct s_stack	*next;

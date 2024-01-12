@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/11 12:26:01 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:21:35 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_get_index(t_stack **stack)
 	return ;
 }
 
-void	ft_get_higher(t_stack **stack)
+int	ft_get_higher(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		pos;
@@ -46,22 +46,22 @@ void	ft_get_higher(t_stack **stack)
 	higher_index = tmp->index;
 	while (tmp->next != *stack)
 	{
-		if (tmp->pos > pos)
+		if (tmp->fpos > pos)
 		{
-			pos = tmp->pos;
+			pos = tmp->fpos;
 			higher_index = tmp->index;
 		}
 		tmp = tmp->next;
 	}
-	if (tmp->pos > pos)
+	if (tmp->fpos > pos)
 	{
-		pos = tmp->pos;
+		pos = tmp->fpos;
 		higher_index = tmp->index;
 	}
 	return(higher_index);
 }
 
-void	ft_get_lowest(t_stack **stack)
+int	ft_get_lowest(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		pos;
@@ -73,16 +73,16 @@ void	ft_get_lowest(t_stack **stack)
 	lowest_index = tmp->index;
 	while (tmp->next != *stack)
 	{
-		if (tmp->pos < pos)
+		if (tmp->fpos < pos)
 		{
-			pos = tmp->pos;
+			pos = tmp->fpos;
 			lowest_index = tmp->index;
 		}
 		tmp = tmp->next;
 	}
-	if (tmp->pos < pos)
+	if (tmp->fpos < pos)
 	{
-		pos = tmp->pos;
+		pos = tmp->fpos;
 		lowest_index = tmp->index;
 	}
 	return(lowest_index);
@@ -92,31 +92,29 @@ void	ft_get_target(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
-	int		index;
+	int		pos;
 
-	tmp_a = *a;
-	tmp_b = *b;
-	index = INT_MAX;
+	tmp_a = ((tmp_b = *b), *a);
+	pos = INT_MAX;
 	while (tmp_a->next != *a)
 	{
-		if (tmp_a->index > tmp_b->index && tmp_a->index < index)
-			index = tmp_a->index;
-		printf("target:%d\n", tmp_b->target);
-		tmp_a = tmp_a->next;
+		if (tmp_a->fpos > tmp_b->fpos && tmp_a->fpos < pos)
+			pos = tmp_a->fpos;
+		printf("target: %d\n", tmp_b->target);
+		tmp_a = ((tmp_b->target = pos),tmp_a->next);
 	}
-	if (index != INT_MAX)
+	if (pos != INT_MAX)
 	{
-		tmp_b->target = index;
+		tmp_b->target = pos;
 		return ;
 	}
-	tmp_a = *a;
-	index = INT_MAX;
+	pos = ((tmp_a = *a), INT_MAX);
 	while (tmp_a->next != *a)
 	{
-		if (tmp_a->index < index)
-			index = tmp_a->index;
+		if (tmp_a->fpos < pos)
+			pos = tmp_a->fpos;
 		tmp_a = tmp_a->next;
 	}
-	tmp_b->target = index;
+	tmp_b->target = pos;
 	return ;
 }

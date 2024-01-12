@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/11 12:13:54 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:15:47 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 	tmp_b = *b;
 	size_a = ft_lst_size(a);
 	size_b = ft_lst_size(b);
-	printf("target:%d\n", tmp_b->target);
-	printf("size_a:%d\n", size_a);
 	while (tmp_b->next != *b)
 	{
 		tmp_b->moves_b = tmp_b->index;
-		printf("index:%d\n", tmp_b->index);
-		printf("moves_b:%d\n", tmp_b->moves_b);
 		if (tmp_b->index > size_b / 2)
 			tmp_b->moves_b = (size_b - tmp_b->index) * -1;
 		tmp_b->moves_a = tmp_b->target;
@@ -41,8 +37,6 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 	tmp_b->moves_a = tmp_b->target;
 	if (tmp_b->target > size_a / 2)
 		tmp_b->moves_a = (size_a - tmp_b->target) * -1;
-		printf("moves_b:%d\n", tmp_b->moves_b);
-		printf("moves_a:%d\n", tmp_b->moves_a);
 	return ;
 }
 
@@ -68,8 +62,6 @@ int	ft_pick(t_stack *stack)
 
 void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
 {
-	// printf("dst_a: %d\n", dst_a);
-	// printf("dst_b: %d\n", dst_b);
 	if (dst_a < 0 || dst_b < 0)
 	{
 		while (dst_a < 0 && dst_b < 0)
@@ -108,9 +100,6 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 		{
 			cheap = ((dst_a = stack_b->moves_a), i);
 			dst_b = stack_b->moves_b;
-		// printf("movess_b:%d\n", dst_b);
-		// printf("movess_a:%d\n", dst_a);
-		// printf("cheap:%d\n", cheap);
 		}
 		stack_b = stack_b->next;
 	}
@@ -134,8 +123,6 @@ void	ft_sort(t_stack **a, t_stack **b)
 		ft_get_index(b);
 		ft_get_target(a, b);
 		ft_calc_moves_ab(a, b);
-		// printf("moves_b:%d\n", (*b)->moves_b);
-		// printf("moves_a:%d\n", (*b)->moves_a);
 		ft_do_cheap(a, b);
 		ft_print_lst(a);
 	}
