@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/12 12:07:18 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:32:31 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	ft_sort3(t_stack **stack)
 
 	current = *stack;
 	next = ((prev = current->past), current->next);
-	if (current->content > next->content
-		&& current->content < prev->content)
+	if (current->content > next->content && current->content < prev->content)
 		ft_swap(stack, 'a');
 	else if (current->content < next->content
 		&& current->content > prev->content)
@@ -52,7 +51,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	a = ft_check(argc, argv);
 	if (!a || ft_issorted(&a) == 1)
-	 	return (0);
+		return (0);
 	b = NULL;
 	ft_sort(&a, &b);
 	return (0);

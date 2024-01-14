@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/12 12:51:41 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:46:03 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,32 +58,36 @@ void	ft_duplicate(t_stack **stack)
 	}
 }
 
-void ft_put_pos(t_stack **stack)
+void	ft_put_pos(t_stack **stack)
 {
-    t_stack *tmp = *stack;
-    t_stack *last = *stack;
+	t_stack	*tmp;
+	t_stack	*last;
+	t_stack	*aux;
+	int		pos;
 
-    while (last->next != *stack)
-        last = last->next;
-    while (1)
-    {
-        t_stack *aux = *stack;
-        int pos = 1;
-
-        while (aux->next != *stack)
-        {
-            if (tmp->content > aux->content)
-                pos++;
-            aux = aux->next;
-        }
-        printf("pos: %d\n", pos);
-        tmp->fpos = pos;
-        printf("tmp->fpos: %d\n", tmp->fpos);
+	tmp = *stack;
+	last = *stack;
+	while (last->next != *stack)
+		last = last->next;
+	while (1)
+	{
+		aux = *stack;
+		pos = 1;
+		while (aux->next != *stack)
+		{
+			if (tmp->content > aux->content)
+				pos++;
+			aux = aux->next;
+		}
+		pos++;
+		printf("pos: %d\n", pos);
+		tmp->fpos = pos;
+		printf("tmp->fpos: %d\n", tmp->fpos);
 		printf("tmp->content: %d\n", tmp->content);
-        tmp = tmp->next;
+		tmp = tmp->next;
 		if (tmp == last->next)
 			break ;
-    }
+	}
 }
 
 t_stack	*ft_check(int argc, char **argv)

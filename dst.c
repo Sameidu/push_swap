@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/12 12:21:35 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:33:13 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_get_higher(t_stack **stack)
 		pos = tmp->fpos;
 		higher_index = tmp->index;
 	}
-	return(higher_index);
+	return (higher_index);
 }
 
 int	ft_get_lowest(t_stack **stack)
@@ -85,7 +85,7 @@ int	ft_get_lowest(t_stack **stack)
 		pos = tmp->fpos;
 		lowest_index = tmp->index;
 	}
-	return(lowest_index);
+	return (lowest_index);
 }
 
 void	ft_get_target(t_stack **a, t_stack **b)
@@ -100,8 +100,8 @@ void	ft_get_target(t_stack **a, t_stack **b)
 	{
 		if (tmp_a->fpos > tmp_b->fpos && tmp_a->fpos < pos)
 			pos = tmp_a->fpos;
-		printf("target: %d\n", tmp_b->target);
-		tmp_a = ((tmp_b->target = pos),tmp_a->next);
+		// printf("target: %d\n", tmp_b->target);
+		tmp_a = ((tmp_b->target = pos), tmp_a->next);
 	}
 	if (pos != INT_MAX)
 	{
