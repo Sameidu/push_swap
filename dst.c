@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/15 09:59:17 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:46:47 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,31 +88,22 @@ int	ft_get_lowest(t_stack **stack)
 	return (lowest_index);
 }
 
-// Arreglar, falta último nodo
 void ft_get_target(t_stack **a, t_stack **b)
 {
-    t_stack *tmp_a;
-    t_stack *tmp_b;
-	t_stack *last;
-    int		pos;
 
-    tmp_a = *a;
-    tmp_b = *b;
-    pos = INT_MAX;
-	last = *a;
-	while (last->next != *a)
-		last = last->next;
-	while (1)
-	{
-		if (tmp_a->fpos < pos)
-			pos = tmp_a->fpos;
-		tmp_b->target = pos;
-		printf("tmp_a->content: %d\n", tmp_a->content);
-		printf("tmp_a->fpos: %d\n", tmp_a->fpos);
-		printf("tmp_b->target: %d\n", tmp_b->target);
-		if (tmp_a == last->next)
-			break ;
-		tmp_a = tmp_a->next;
-	}
 }
 
+void	ft_set_target(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp_b;
+	int		pos;
+
+	pos = 0;
+	tmp_b = *b;
+	while (tmp_b->next != *b)
+	{
+		pos = ft_get_target(a, , INT_MAX, pos);
+		tmp_b->target = pos;
+		tmp_b = tmp_b->next;
+	}
+}
