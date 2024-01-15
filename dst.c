@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/14 17:33:13 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:59:17 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,33 +88,31 @@ int	ft_get_lowest(t_stack **stack)
 	return (lowest_index);
 }
 
-void	ft_get_target(t_stack **a, t_stack **b)
+// Arreglar, falta último nodo
+void ft_get_target(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-	int		pos;
+    t_stack *tmp_a;
+    t_stack *tmp_b;
+	t_stack *last;
+    int		pos;
 
-	tmp_a = ((tmp_b = *b), *a);
-	pos = INT_MAX;
-	while (tmp_a->next != *a)
-	{
-		if (tmp_a->fpos > tmp_b->fpos && tmp_a->fpos < pos)
-			pos = tmp_a->fpos;
-		// printf("target: %d\n", tmp_b->target);
-		tmp_a = ((tmp_b->target = pos), tmp_a->next);
-	}
-	if (pos != INT_MAX)
-	{
-		tmp_b->target = pos;
-		return ;
-	}
-	pos = ((tmp_a = *a), INT_MAX);
-	while (tmp_a->next != *a)
+    tmp_a = *a;
+    tmp_b = *b;
+    pos = INT_MAX;
+	last = *a;
+	while (last->next != *a)
+		last = last->next;
+	while (1)
 	{
 		if (tmp_a->fpos < pos)
 			pos = tmp_a->fpos;
+		tmp_b->target = pos;
+		printf("tmp_a->content: %d\n", tmp_a->content);
+		printf("tmp_a->fpos: %d\n", tmp_a->fpos);
+		printf("tmp_b->target: %d\n", tmp_b->target);
+		if (tmp_a == last->next)
+			break ;
 		tmp_a = tmp_a->next;
 	}
-	tmp_b->target = pos;
-	return ;
 }
+
