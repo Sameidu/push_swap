@@ -6,7 +6,7 @@
 /*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/15 11:42:08 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/16 09:58:07 by sarameixoei      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	ft_sort(t_stack **a, t_stack **b)
 	{
 		ft_get_index(a);
 		ft_get_index(b);
-		ft_get_target(a, b);
+		ft_set_target(a, b);
 		ft_calc_moves_ab(a, b);
 		ft_do_cheap(a, b);
 		ft_print_lst(a);
