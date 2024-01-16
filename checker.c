@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/15 09:19:13 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:43:01 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ void	ft_put_pos(t_stack **stack)
 	int		pos;
 
 	tmp = ((last = *stack), *stack);
-	while (last->next != *stack)
-		last = last->next;
+	last = (*stack)->past;
 	while (1)
 	{
 		aux = *stack;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/16 12:24:58 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/16 23:41:15 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,12 @@ int ft_get_target(t_stack **a, int b_pos, int max, int pos)
 	t_stack *tmp_a;
 	t_stack *last;
 
-	tmp_a = *a;
-	last = *a;
-	while (last->next != *a)
-		last = last->next;
+	tmp_a = ((last = *a), *a);
+	last = (*a)->past;
 	while (1)
 	{
 		if (tmp_a->fpos > b_pos && tmp_a->fpos < max)
-		{
-			max = tmp_a->fpos;
-			pos = tmp_a->index;
-		}
+			pos = ((max = tmp_a->fpos), tmp_a->index);
 		tmp_a = tmp_a->next;
 		if (tmp_a == last->next)
 			break ;
@@ -114,10 +109,7 @@ int ft_get_target(t_stack **a, int b_pos, int max, int pos)
 	while (1)
 	{
 		if (tmp_a->fpos < max)
-		{
-			max = tmp_a->fpos;
-			pos = tmp_a->index;
-		}
+			pos = ((max = tmp_a->fpos), tmp_a->index);
 		tmp_a = tmp_a->next;
 		if (tmp_a == last->next)
 			break ;
@@ -129,14 +121,21 @@ int ft_get_target(t_stack **a, int b_pos, int max, int pos)
 void	ft_set_target(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_b;
+	t_stack	*last;
 	int		t_pos;
 
 	t_pos = 0;
 	tmp_b = *b;
-	while (tmp_b->next != *b)
+	last = (*b)->past;
+	while (1)
 	{
 		t_pos = ft_get_target(a, tmp_b->fpos, INT_MAX, t_pos);
 		tmp_b->target = t_pos;
+		ft_print_lst(b);
+		printf("content: %d\n", tmp_b->content);
+		printf("target: %d\n", tmp_b->target);
 		tmp_b = tmp_b->next;
+		if (tmp_b == last->next)
+			break ;
 	}
 }
