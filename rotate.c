@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/10 09:33:30 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/17 11:49:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,27 @@ void	ft_rr_rotate(t_stack **a, t_stack **b)
 	ft_reverse_rotate(a, 'x');
 	ft_reverse_rotate(b, 'x');
 	ft_putendl_fd("rrr", 2);
+}
+
+void	ft_loop(t_stack **a, t_stack **b, int i, char c)
+{
+	while (i)
+	{
+		if (i > 0)
+		{
+			if (c == 'a')
+				ft_rotate(a, c);
+			else if (c == 'b')
+				ft_rotate(b, c);
+			i--;
+		}
+		else
+		{
+			if (c == 'a')
+				ft_reverse_rotate(a, c);
+			else if (c == 'b')
+				ft_reverse_rotate(b, c);
+			i++;
+		}
+	}
 }

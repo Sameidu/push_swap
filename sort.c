@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/16 09:58:07 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/17 11:50:55 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_b;
+	t_stack	*last;
 	int		size_a;
 	int		size_b;
 
-	tmp_b = *b;
+	tmp_b = ((last = (*b)->past), *b);
 	size_a = ft_lst_size(a);
 	size_b = ft_lst_size(b);
-	while (tmp_b->next != *b)
+	while (1)
 	{
 		tmp_b->moves_b = tmp_b->index;
 		if (tmp_b->index > size_b / 2)
@@ -30,13 +31,9 @@ void	ft_calc_moves_ab(t_stack **a, t_stack **b)
 		if (tmp_b->target > size_a / 2)
 			tmp_b->moves_a = (size_a - tmp_b->target) * -1;
 		tmp_b = tmp_b->next;
+		if (tmp_b == last->next)
+			break ;
 	}
-	tmp_b->moves_b = tmp_b->index;
-	if (tmp_b->index > size_b / 2)
-		tmp_b->moves_b = (size_b - tmp_b->index) * -1;
-	tmp_b->moves_a = tmp_b->target;
-	if (tmp_b->target > size_a / 2)
-		tmp_b->moves_a = (size_a - tmp_b->target) * -1;
 	return ;
 }
 
@@ -80,6 +77,8 @@ void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
 			ft_r_rotate(a, b);
 		}
 	}
+	ft_loop(a, b, dst_a, 'a');
+	ft_loop(a, b, dst_b, 'b');
 	if (*b)
 		ft_push(b, a, 'a');
 }
@@ -112,6 +111,26 @@ void	ft_do_cheap(t_stack **a, t_stack **b)
 	ft_move(a, b, dst_a, dst_b);
 }
 
+void	ft_shift(t_stack **a)
+{
+	int	size;
+	int	lowest;
+
+	size = ft_lst_size(a);
+	lowest = ft_get_lowest(a);
+	if (lowest > size / 2)
+	{
+		while ((*a)->index != lowest)
+			ft_reverse_rotate(a, 'a');
+	}
+	else
+	{
+		while ((*a)->index != lowest)
+			ft_rotate(a, 'a');
+	}
+
+}
+
 void	ft_sort(t_stack **a, t_stack **b)
 {
 	ft_push_tob(a, b);
@@ -124,6 +143,6 @@ void	ft_sort(t_stack **a, t_stack **b)
 		ft_set_target(a, b);
 		ft_calc_moves_ab(a, b);
 		ft_do_cheap(a, b);
-		ft_print_lst(a);
 	}
+	ft_shift(a);
 }

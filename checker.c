@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/16 23:43:01 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:49:43 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ void	ft_put_pos(t_stack **stack)
 		if (tmp->content > aux->content)
 			pos++;
 		tmp->fpos = pos;
-		printf("tmp->content: %d\n", tmp->content);
-		printf("tmp->fpos: %d\n", tmp->fpos);
 		tmp = tmp->next;
 		if (tmp == last->next)
 			break ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/14 17:32:31 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:54:05 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_sort3(t_stack **stack)
 		if (next->content > prev->content)
 			ft_swap(stack, 'a');
 	}
-	ft_print_lst(stack);
 }
 
 int	main(int argc, char **argv)
@@ -54,5 +53,7 @@ int	main(int argc, char **argv)
 		return (0);
 	b = NULL;
 	ft_sort(&a, &b);
+	ft_print_lst(&a);
+	ft_free_stack(&a);
 	return (0);
 }

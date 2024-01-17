@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarameixoeiro <sarameixoeiro@student.42    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/16 09:57:53 by sarameixoei      ###   ########.fr       */
+/*   Updated: 2024/01/17 11:39:57 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
 int		ft_value(int nbr);
+void	ft_free_stack(t_stack **stack);
 
 //MOVMENTS
 void	ft_swap(t_stack **stack, char c);
@@ -51,11 +52,13 @@ void	ft_rotate(t_stack **stack, char c);
 void	ft_r_rotate(t_stack **a, t_stack **b);
 void	ft_reverse_rotate(t_stack **stack, char c);
 void	ft_rr_rotate(t_stack **a, t_stack **b);
+void	ft_loop(t_stack **a, t_stack **b, int i, char c);
 
 //ALGO
 void	ft_sort(t_stack **a, t_stack **b);
 void	ft_sort3(t_stack **stack);
 void	ft_get_index(t_stack **stack);
 void	ft_set_target(t_stack **a, t_stack **b);
+int		ft_get_lowest(t_stack **stack);
 
 #endif

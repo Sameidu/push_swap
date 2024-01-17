@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/16 23:41:15 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:53:50 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,6 @@ void	ft_get_index(t_stack **stack)
 	}
 	current->index = i;
 	return ;
-}
-
-int	ft_get_higher(t_stack **stack)
-{
-	t_stack	*tmp;
-	int		pos;
-	int		higher_index;
-
-	tmp = *stack;
-	ft_get_index(stack);
-	pos = INT_MIN;
-	higher_index = tmp->index;
-	while (tmp->next != *stack)
-	{
-		if (tmp->fpos > pos)
-		{
-			pos = tmp->fpos;
-			higher_index = tmp->index;
-		}
-		tmp = tmp->next;
-	}
-	if (tmp->fpos > pos)
-	{
-		pos = tmp->fpos;
-		higher_index = tmp->index;
-	}
-	return (higher_index);
 }
 
 int	ft_get_lowest(t_stack **stack)
@@ -131,9 +104,6 @@ void	ft_set_target(t_stack **a, t_stack **b)
 	{
 		t_pos = ft_get_target(a, tmp_b->fpos, INT_MAX, t_pos);
 		tmp_b->target = t_pos;
-		ft_print_lst(b);
-		printf("content: %d\n", tmp_b->content);
-		printf("target: %d\n", tmp_b->target);
 		tmp_b = tmp_b->next;
 		if (tmp_b == last->next)
 			break ;
