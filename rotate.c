@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:49:40 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:14:01 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_rotate(t_stack **stack, char c)
 		return ;
 	*stack = (*stack)->next;
 	if (c == 'a')
-		ft_putendl_fd("ra", 2);
+		ft_putendl_fd("ra", 1);
 	if (c == 'b')
-		ft_putendl_fd("rb", 2);
+		ft_putendl_fd("rb", 1);
 	if (c == 'x')
 		return ;
 }
@@ -29,7 +29,7 @@ void	ft_r_rotate(t_stack **a, t_stack **b)
 {
 	ft_rotate(a, 'x');
 	ft_rotate(b, 'x');
-	ft_putendl_fd("rr", 2);
+	ft_putendl_fd("rr", 1);
 }
 
 void	ft_reverse_rotate(t_stack **stack, char c)
@@ -38,9 +38,9 @@ void	ft_reverse_rotate(t_stack **stack, char c)
 		return ;
 	*stack = (*stack)->past;
 	if (c == 'a')
-		ft_putendl_fd("rra", 2);
+		ft_putendl_fd("rra", 1);
 	if (c == 'b')
-		ft_putendl_fd("rrb", 2);
+		ft_putendl_fd("rrb", 1);
 	if (c == 'x')
 		return ;
 }
@@ -49,7 +49,7 @@ void	ft_rr_rotate(t_stack **a, t_stack **b)
 {
 	ft_reverse_rotate(a, 'x');
 	ft_reverse_rotate(b, 'x');
-	ft_putendl_fd("rrr", 2);
+	ft_putendl_fd("rrr", 1);
 }
 
 void	ft_loop(t_stack **a, t_stack **b, int i, char c)

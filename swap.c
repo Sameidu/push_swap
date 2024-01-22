@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:49 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/08 18:41:04 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:14:34 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	ft_swap(t_stack **stack, char c)
 	if (head == first)
 		*stack = second;
 	if (c == 'a')
-		ft_putendl_fd("sa", 2);
+		ft_putendl_fd("sa", 1);
 	else if (c == 'b')
-		ft_putendl_fd("sb", 2);
+		ft_putendl_fd("sb", 1);
 	else if (c == 'x')
 		return ;
 	else
@@ -45,5 +45,5 @@ void	ft_swap_ab(t_stack **a, t_stack **b)
 {
 	ft_swap(a, 'x');
 	ft_swap(b, 'x');
-	ft_putendl_fd("ss", 2);
+	ft_putendl_fd("ss", 1);
 }
