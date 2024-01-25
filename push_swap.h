@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 12:40:40 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:19:52 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ typedef struct s_stack
 //CHECKER
 void	ft_error(char *str);
 void	ft_isnum(char *str);
-t_stack	*ft_check(int argc, char **argv);
+t_stack	*ft_check(char **args);
 int		ft_issorted(t_stack **a);
 t_stack	*ft_create_node(char *str);
 void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
 int		ft_value(int nbr);
-long		ft_atol(char *str);
+long	ft_atol(char *str);
 void	ft_free_stack(t_stack **stack);
 
 //MOVMENTS
@@ -53,7 +53,7 @@ void	ft_rotate(t_stack **stack, char c);
 void	ft_r_rotate(t_stack **a, t_stack **b);
 void	ft_reverse_rotate(t_stack **stack, char c);
 void	ft_rr_rotate(t_stack **a, t_stack **b);
-void	ft_loop(t_stack **a, t_stack **b, int i, char c);
+void	ft_loops(t_stack **a, t_stack **b, int i, char c);
 
 //ALGO
 void	ft_sort(t_stack **a, t_stack **b);

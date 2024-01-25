@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:50:55 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:19:44 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	ft_move(t_stack **a, t_stack **b, int dst_a, int dst_b)
 			ft_r_rotate(a, b);
 		}
 	}
-	ft_loop(a, b, dst_a, 'a');
-	ft_loop(a, b, dst_b, 'b');
+	ft_loops(a, b, dst_a, 'a');
+	ft_loops(a, b, dst_b, 'b');
 	if (*b)
 		ft_push(b, a, 'a');
 }

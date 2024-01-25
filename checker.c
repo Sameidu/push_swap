@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 12:42:26 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:16:28 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,17 @@ void	ft_put_pos(t_stack **stack)
 	}
 }
 
-t_stack	*ft_check(int argc, char **argv)
+t_stack	*ft_check(char **args)
 {
 	int		i;
 	t_stack	*stack;
 	t_stack	*new_node;
 
-	i = ((stack = NULL), 1);
-	while (i < argc)
+	i = ((stack = NULL), 0);
+	while (args[i])
 	{
-		ft_isnum(argv[i]);
-		new_node = ft_create_node(argv[i]);
+		ft_isnum(args[i]);
+		new_node = ft_create_node(args[i]);
 		if (stack == NULL)
 		{
 			stack = new_node;

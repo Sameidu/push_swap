@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/22 19:14:01 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:19:14 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_rr_rotate(t_stack **a, t_stack **b)
 	ft_putendl_fd("rrr", 1);
 }
 
-void	ft_loop(t_stack **a, t_stack **b, int i, char c)
+void	ft_loops(t_stack **a, t_stack **b, int i, char c)
 {
 	while (i)
 	{

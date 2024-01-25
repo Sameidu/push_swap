@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 12:33:19 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:11:06 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,40 @@ void	ft_sort3(t_stack **stack)
 	}
 }
 
+char	**ft_argsplit(char **argv)
+{
+	char	**args;
+	char	*tmp;
+	int		i;
+
+	i = 1;
+	args = NULL;
+	tmp = ft_strdup("");
+	while (argv[i])
+	{
+		tmp = ft_strjoin(tmp, argv[i]);
+		tmp = ft_strjoin(tmp, " ");
+		i++;
+	}
+	args = ft_split(tmp, ' ');
+	free(tmp);
+	if (!args)
+		ft_error("ERROR: Empty argument");
+	return (args);
+
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char 	**args;
 
 	if (argc < 2)
 		return (0);
+	args = ft_argsplit(argv);
 	a = NULL;
-	a = ft_check(argc, argv);
+	a = ft_check(args);
 	if (!a || ft_issorted(&a) == 1)
 		return (0);
 	b = NULL;
