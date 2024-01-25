@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:39:57 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:40:40 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
 int		ft_value(int nbr);
+long		ft_atol(char *str);
 void	ft_free_stack(t_stack **stack);
 
 //MOVMENTS

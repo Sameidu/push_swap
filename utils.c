@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:50:50 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/09 20:22:19 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:40:36 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,31 @@ void	ft_free_stack(t_stack **stack)
 		next = next->next;
 	}
 	free(current);
+}
+
+long	ft_atol(char *str)
+{
+	long	nbr;
+	int		flag;
+	int		i;
+
+	nbr = 0;
+	i = 0;
+	flag = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			flag *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr = (nbr * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nbr * flag);
 }
 
 int	ft_value(int nbr)

@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:49:43 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:42:26 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_isnum(char *str)
 			ft_error("ERROR: Not a number");
 		str++;
 	}
-	aux = ft_atoi(num);
+	aux = ft_atol(num);
 	if (aux > INT_MAX || aux < INT_MIN)
 		ft_error("ERROR: Number out of range");
 }
