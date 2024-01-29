@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:33:21 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:53:50 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:21:48 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ int	ft_get_lowest(t_stack **stack)
 	return (lowest_index);
 }
 
-int ft_get_target(t_stack **a, int b_pos, int max, int pos)
+int	ft_get_target(t_stack **a, int b_pos, int max, int pos)
 {
-	t_stack *tmp_a;
-	t_stack *last;
+	t_stack	*tmp_a;
+	t_stack	*last;
 
 	tmp_a = ((last = *a), *a);
 	last = (*a)->past;
@@ -89,7 +89,6 @@ int ft_get_target(t_stack **a, int b_pos, int max, int pos)
 	}
 	return (pos);
 }
-
 
 void	ft_set_target(t_stack **a, t_stack **b)
 {

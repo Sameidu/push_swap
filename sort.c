@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:18:25 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 13:19:44 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:24:56 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,21 +128,4 @@ void	ft_shift(t_stack **a)
 		while ((*a)->index != lowest)
 			ft_rotate(a, 'a');
 	}
-
-}
-
-void	ft_sort(t_stack **a, t_stack **b)
-{
-	ft_push_tob(a, b);
-	if (ft_issorted(a) == 0)
-		ft_sort3(a);
-	while (*b)
-	{
-		ft_get_index(a);
-		ft_get_index(b);
-		ft_set_target(a, b);
-		ft_calc_moves_ab(a, b);
-		ft_do_cheap(a, b);
-	}
-	ft_shift(a);
 }

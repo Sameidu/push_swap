@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 13:11:06 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:25:04 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ void	ft_sort3(t_stack **stack)
 	}
 }
 
+void	ft_sort(t_stack **a, t_stack **b)
+{
+	ft_push_tob(a, b);
+	if (ft_issorted(a) == 0)
+		ft_sort3(a);
+	while (*b)
+	{
+		ft_get_index(a);
+		ft_get_index(b);
+		ft_set_target(a, b);
+		ft_calc_moves_ab(a, b);
+		ft_do_cheap(a, b);
+	}
+	ft_shift(a);
+}
+
 char	**ft_argsplit(char **argv)
 {
 	char	**args;
@@ -60,14 +76,13 @@ char	**ft_argsplit(char **argv)
 	if (!args)
 		ft_error("ERROR: Empty argument");
 	return (args);
-
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	char 	**args;
+	char	**args;
 
 	if (argc < 2)
 		return (0);

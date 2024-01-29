@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/29 16:46:09 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:23:30 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_push_tob(t_stack **a, t_stack **b)
 	}
 	while (size - push > 3)
 	{
-		ft_push(a, b , 'b');
+		ft_push(a, b, 'b');
 		push++;
 	}
 }

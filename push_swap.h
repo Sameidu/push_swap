@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 13:19:52 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:26:19 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ void	ft_sort3(t_stack **stack);
 void	ft_get_index(t_stack **stack);
 void	ft_set_target(t_stack **a, t_stack **b);
 int		ft_get_lowest(t_stack **stack);
+void	ft_calc_moves_ab(t_stack **a, t_stack **b);
+void	ft_do_cheap(t_stack **a, t_stack **b);
+void	ft_shift(t_stack **a);
 
 #endif
