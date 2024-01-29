@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/11 11:34:49 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:46:09 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,27 @@ void	ft_print_lst(t_stack **stack)
 void	ft_push_tob(t_stack **a, t_stack **b)
 {
 	int	size;
+	int	push;
+	int	i;
 
 	size = ft_lst_size(a);
-	while (size > 3)
+	push = 0;
+	i = 0;
+	while (size > 6 && i < size && push < size)
 	{
-		ft_push(a, b, 'b');
-		size = ft_lst_size(a);
+		if ((*a)->content < size / 2)
+		{
+			ft_push(a, b, 'b');
+			push++;
+		}
+		else
+			ft_rotate(a, 'a');
+		i++;
+	}
+	while (size - push > 3)
+	{
+		ft_push(a, b , 'b');
+		push++;
 	}
 }
 
