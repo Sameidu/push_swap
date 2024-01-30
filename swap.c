@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:49 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/22 19:14:34 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:50:03 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_swap(t_stack **stack, char c)
 	else if (c == 'x')
 		return ;
 	else
-		ft_putendl_fd("ERROR: BAD STACK", 2);
+		ft_putendl_fd("Error", 2);
 }
 
 void	ft_swap_ab(t_stack **a, t_stack **b)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:24:12 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/22 19:14:13 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:50:04 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ void	ft_push(t_stack **push, t_stack **dst, char c)
 	else if (c == 'b')
 		ft_putendl_fd("pb", 1);
 	else
-		ft_putendl_fd("ERROR: BAD STACK", 2);
+		ft_putendl_fd("Error", 2);
 }

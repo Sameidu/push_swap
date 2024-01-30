@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/29 19:23:30 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:50:06 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ t_stack	*ft_create_node(char *str)
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		ft_error("ERROR: Malloc failed");
+		ft_error("Error");
 	new->content = ft_atoi(str);
 	new->next = NULL;
 	new->past = NULL;

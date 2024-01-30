@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/25 13:16:28 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:50:07 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ void	ft_isnum(char *str)
 
 	num = str;
 	if (!str)
-		ft_error("ERROR: Empty argument");
+		ft_error("Error");
 	if (*str == '-' || *str == '+')
 		str++;
 	if (*str == '\0')
-		ft_error("ERROR: No number after sign");
+		ft_error("Error");
 	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str))
-			ft_error("ERROR: Not a number");
+			ft_error("Error");
 		str++;
 	}
 	aux = ft_atol(num);
 	if (aux > INT_MAX || aux < INT_MIN)
-		ft_error("ERROR: Number out of range");
+		ft_error("Error");
 }
 
 void	ft_duplicate(t_stack **stack)
@@ -50,7 +50,7 @@ void	ft_duplicate(t_stack **stack)
 		{
 			if (current->content == compare->content)
 			{
-				ft_error("ERROR: Duplicate number");
+				ft_error("Error");
 			}
 			compare = compare->next;
 		}

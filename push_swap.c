@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smeixoei <smeixoei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/29 19:25:04 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:08:42 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	**ft_argsplit(char **argv)
 	args = ft_split(tmp, ' ');
 	free(tmp);
 	if (!args)
-		ft_error("ERROR: Empty argument");
+		ft_error("Error");
 	return (args);
 }
 
