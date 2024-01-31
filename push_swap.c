@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/31 11:10:15 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:06:05 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char	**ft_argsplit(char **argv)
 	free(tmp);
 	if (!args)
 		ft_error("Error");
+	if (!ft_isnum(*args))
+		ft_error("Error");
 	return (args);
 }
 
@@ -86,8 +88,6 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!ft_isnum(argv[1]))
-		ft_error("Error");
 	args = ft_argsplit(argv);
 	a = NULL;
 	a = ft_check(args);
@@ -95,7 +95,7 @@ int	main(int argc, char **argv)
 		return (0);
 	b = NULL;
 	ft_sort(&a, &b);
-	ft_print_lst(&a);
+	//ft_print_lst(&a);
 	ft_free_stack(&a);
 	return (0);
 }
