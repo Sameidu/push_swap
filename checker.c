@@ -6,33 +6,34 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 09:32:44 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:07 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:29:09 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_isnum(char *str)
+int	ft_isnum(char *str)
 {
 	long	aux;
 	char	*num;
 
 	num = str;
 	if (!str)
-		ft_error("Error");
+		return (0);
 	if (*str == '-' || *str == '+')
 		str++;
 	if (*str == '\0')
-		ft_error("Error");
+		return (0);
 	while (*str != '\0')
 	{
 		if (!ft_isdigit(*str))
-			ft_error("Error");
+			return (0);
 		str++;
 	}
 	aux = ft_atol(num);
 	if (aux > INT_MAX || aux < INT_MIN)
-		ft_error("Error");
+		return (0);
+	return (1);
 }
 
 void	ft_duplicate(t_stack **stack)
@@ -49,9 +50,7 @@ void	ft_duplicate(t_stack **stack)
 		while (compare != *stack)
 		{
 			if (current->content == compare->content)
-			{
 				ft_error("Error");
-			}
 			compare = compare->next;
 		}
 		current = current->next;
@@ -95,7 +94,8 @@ t_stack	*ft_check(char **args)
 	i = ((stack = NULL), 0);
 	while (args[i])
 	{
-		ft_isnum(args[i]);
+		if (ft_isnum(args[i]) == 0)
+			ft_error("Error");
 		new_node = ft_create_node(args[i]);
 		if (stack == NULL)
 		{
@@ -105,8 +105,7 @@ t_stack	*ft_check(char **args)
 		else
 		{
 			new_node->past = ((new_node->next = stack), stack->past);
-			stack->past->next = new_node;
-			stack->past = new_node;
+			stack->past = ((stack->past->next = new_node), new_node);
 		}
 		i++;
 	}

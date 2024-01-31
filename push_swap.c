@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/30 12:08:42 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:10:15 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	if (!ft_isnum(argv[1]))
+		ft_error("Error");
 	args = ft_argsplit(argv);
 	a = NULL;
 	a = ft_check(args);
