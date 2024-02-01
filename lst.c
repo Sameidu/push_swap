@@ -60,7 +60,7 @@ void	ft_push_tob(t_stack **a, t_stack **b)
 	i = 0;
 	while (size > 6 && i < size && push < size)
 	{
-		if ((*a)->content < size / 2)
+		if ((*a)->fpos < size / 2)
 		{
 			ft_push(a, b, 'b');
 			push++;
