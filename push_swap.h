@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:20:13 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/31 10:22:20 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:48:12 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		ft_isnum(char *str);
 t_stack	*ft_check(char **args);
 int		ft_issorted(t_stack **a);
 t_stack	*ft_create_node(char *str);
-void	ft_print_lst(t_stack **stack);
 int		ft_lst_size(t_stack **stack);
 void	ft_push_tob(t_stack **a, t_stack **b);
 int		ft_value(int nbr);

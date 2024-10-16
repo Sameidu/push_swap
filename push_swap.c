@@ -6,11 +6,25 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:34:28 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/31 12:06:05 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:28:50 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	*ft_free(char **aux)
+{
+	int	i;
+
+	i = 0;
+	while (aux[i] != (void *)0)
+	{
+		free(aux[i]);
+		i++;
+	}
+	free(aux);
+	return (NULL);
+}
 
 void	ft_sort3(t_stack **stack)
 {
@@ -67,8 +81,8 @@ char	**ft_argsplit(char **argv)
 	tmp = ft_strdup("");
 	while (argv[i])
 	{
-		tmp = ft_strjoin(tmp, argv[i]);
-		tmp = ft_strjoin(tmp, " ");
+		tmp = ft_strappend(tmp, argv[i]);
+		tmp = ft_strappend(tmp, " ");
 		i++;
 	}
 	args = ft_split(tmp, ' ');
@@ -91,11 +105,16 @@ int	main(int argc, char **argv)
 	args = ft_argsplit(argv);
 	a = NULL;
 	a = ft_check(args);
-	if (!a || ft_issorted(&a) == 1)
+	ft_free(args);
+	if (!a)
 		return (0);
+	if (ft_issorted(&a))
+	{
+		ft_free_stack(&a);
+		return (0);
+	}
 	b = NULL;
 	ft_sort(&a, &b);
-	//ft_print_lst(&a);
 	ft_free_stack(&a);
 	return (0);
 }

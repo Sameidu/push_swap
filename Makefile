@@ -1,6 +1,6 @@
 NAME		=	push_swap
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror #-g3 -fsanitize=address,leak
 LFT			=	libft/libft.a
 OBJ			=	$(SRC:.c=.o)
 SRC			=	push_swap.c\

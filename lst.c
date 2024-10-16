@@ -6,7 +6,7 @@
 /*   By: smeixoei <smeixoei@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:59:26 by smeixoei          #+#    #+#             */
-/*   Updated: 2024/01/30 11:50:06 by smeixoei         ###   ########.fr       */
+/*   Updated: 2024/10/16 18:21:56 by smeixoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,6 @@ int	ft_lst_size(t_stack **stack)
 	}
 	++lenght;
 	return (lenght);
-}
-
-void	ft_print_lst(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*next;
-
-	current = *stack;
-	next = current->next;
-	while (next != *stack)
-	{
-		ft_putnbr_fd(current->content, 1);
-		ft_putchar_fd(' ', 1);
-		current = current->next;
-		next = next->next;
-	}
-	ft_putnbr_fd(current->content, 1);
-	ft_putchar_fd('\n', 1);
-	return ;
 }
 
 void	ft_push_tob(t_stack **a, t_stack **b)
@@ -80,7 +61,8 @@ t_stack	*ft_create_node(char *str)
 {
 	t_stack	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
+	new = NULL;
+	new = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	if (!new)
 		ft_error("Error");
 	new->content = ft_atoi(str);
